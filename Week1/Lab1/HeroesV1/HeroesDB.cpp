@@ -19,7 +19,42 @@ void HeroesDB::ShowHeroes(){
 		Console::Write(std::to_string(hero.Id()) + " " + hero.Name()+ "\n");
 }
 //remove heroes method
+//If the hero is found, remove the hero from the heroes vector.
+//Return true if the hero was found and removed.
+//Return false if the hero was not found.
+//
+//When checking for a match, make sure to ignore the case of the name and the parameter.
+//Use the _stricmp method to compare strings.Note: you’ll need to call c_str() on the std::string when calling the method.
+bool HeroesDB::RemoveHero(std::string heroRemove) {
+	bool result = false;
+	//for each loop to go through the _heroes vector
+	for (int i = 0; i < _heroes.size(); i++) {
 
+		//variables to be used in comparison
+		std::string s1 = _heroes[i].Name();
+		std::string s2 = heroRemove;
+
+		//_stricmp method to compare s1 and s2
+		int compResult = _stricmp(s1.c_str(), s2.c_str());
+
+		//if the two strings are the same the hero is removed and result is set to true
+		if(compResult == 0) {
+			_heroes.erase(_heroes.begin() + i);
+			result = true;
+			Console::Write(heroRemove + " was removed.\n");
+			break;
+		}
+		else {
+			result = false;
+		}
+	}
+	//else result is set to false
+	if (result == false) {
+		Console::Write(heroRemove + " was not found.\n");
+			}
+
+	return result;
+}
 //starts with method
 
 

@@ -38,7 +38,7 @@ public:
         Use the _stricmp method to compare strings. Note: you’ll need to call c_str() on the std::string when calling the method.
     
     */
-
+    bool RemoveHero(std::string heroRemove);
 
     /*
     

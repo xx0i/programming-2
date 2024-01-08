@@ -61,7 +61,8 @@ int main()
                 Call RemoveHero passing the string that the user enters.
                 If the returned value is true, print that the hero was removed else print that the hero was not found.
             */
-
+            std::string removeHero = Input::GetString("Enter the name of the hero to remove: ");
+            heroDB.RemoveHero(removeHero);
             break;
         }
         case 3:
