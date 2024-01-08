@@ -16,7 +16,7 @@ void HeroesDB::ShowHeroes(){
 	//for each loop to go through the _heroes vector
 	for (Hero hero : _heroes)
 		//prints id number and hero to console
-		Console::Write(std::to_string(hero.Id()) + " " + hero.Name()+ "\n");
+		Console::Write(std::to_string(hero.Id()) + ". " + hero.Name()+ "\n");
 }
 //remove heroes method
 //If the hero is found, remove the hero from the heroes vector.
@@ -55,8 +55,26 @@ bool HeroesDB::RemoveHero(std::string heroRemove) {
 
 	return result;
 }
+/*
+Loop over the heroes vector and add every hero whose name starts with the string parameter to a vector.Return the vector.
+When checking for a match, make sure to ignore the case of the name and the parameter.
+Use the isPrefix method of the HeroesDB class to check for a prefix.*/
 //starts with method
+std::vector<Hero> HeroesDB::StartsWith(std::string heroPrefix) {
 
+	std::vector<Hero>samePrefix;
+
+	for (int i = 0; i < _heroes.size(); i++) {
+		bool prefix1 = isPrefix(heroPrefix, _heroes[i].Name());
+		if (prefix1 == true) {
+				samePrefix.push_back(_heroes[i]);
+		}
+	}
+	for (Hero hero : samePrefix)
+		Console::Write(std::to_string(hero.Id()) + ". " + hero.Name() + "\n");
+
+	return samePrefix;
+}
 
 /*
 

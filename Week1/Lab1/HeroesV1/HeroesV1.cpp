@@ -73,7 +73,8 @@ int main()
                 Call StartsWith passing the string that the user enters and assign the returned vector to a vector variable. 
                 print out the number of heroes found AND loop over the vector and print the Id and Name for each hero found.
             */
-
+            std::string startsWithPrefix = Input::GetString("Enter the start of the name to find: ");
+            heroDB.StartsWith(startsWithPrefix);
             break;
         }
         case 4:

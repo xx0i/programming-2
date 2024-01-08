@@ -49,7 +49,7 @@ public:
         Use the isPrefix method of the HeroesDB class to check for a prefix.
     
     */
-
+    std::vector<Hero> StartsWith(std::string heroPrefix);
 
 
     /*
