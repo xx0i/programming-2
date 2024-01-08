@@ -63,6 +63,8 @@ int main()
 
     */
 
+    bool checkEven = t1000.isEven(2);
+    std::cout << "is the number even? " << checkEven << std::endl;
 
 
     /*
@@ -99,6 +101,13 @@ int main()
             Add a few grades to the grades vector.
 
     */
+
+    std::vector<float> grades = {92.2F, 87.3F};
+    grades.push_back(65.9F);
+    grades.push_back(100.0F);
+    grades.push_back(78.4F);
+    grades.push_back(45.5F);
+    grades.push_back(56.5F);
 
 
 

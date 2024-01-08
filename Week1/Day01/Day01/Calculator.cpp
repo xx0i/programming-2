@@ -9,3 +9,15 @@ double Calculator::mult(double num, double factor)
 {
 	return num * factor;
 }
+
+bool Calculator::isEven(int number){
+	bool result = false;
+	
+	if (number % 2 == 0) {
+		result = true;
+	}
+	else {
+		result = false;
+	}
+	return result;
+}
