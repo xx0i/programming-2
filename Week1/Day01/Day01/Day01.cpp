@@ -5,6 +5,7 @@
 #include <vector>
 #include <string>
 #include "Calculator.h"
+#include "ChefRobot.h"
 
 int AddOne(int localNumber)
 {
@@ -22,6 +23,10 @@ void print(const std::vector<std::string>& names)
 
 int main()
 {
+    ChefRobot gordon;
+    std::string todaysMenu = "Hawaiian Pizza";
+    std::string food = gordon.CookFood(todaysMenu); //makes a copy of todays menu
+
     /*
       Calling a method
         use the methods name.
@@ -215,5 +220,6 @@ int main()
             3) print the average that is returned.
 
     */
-    
+    float average = t1000.average(grades);
+    std::cout << "the average pf the grades is " << average << std::endl;
 }

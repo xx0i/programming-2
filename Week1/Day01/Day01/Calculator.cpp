@@ -21,3 +21,12 @@ bool Calculator::isEven(int number){
 	}
 	return result;
 }
+
+float Calculator::average(std::vector<float>nums) {
+	float avg = 0;
+	for (int i = 0; i < nums.size(); i++) {
+		avg += nums[i];
+	}
+	avg /= nums.size();
+	return avg;
+}
