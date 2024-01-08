@@ -22,7 +22,7 @@ public:
         The method should loop over the _heroes vector and print the hero ID and the hero Name.
         
     */
-    //call void ShowHeroes() method
+    
     void ShowHeroes();
 
     /*

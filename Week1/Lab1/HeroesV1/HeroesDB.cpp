@@ -37,42 +37,45 @@ bool HeroesDB::RemoveHero(std::string heroRemove) {
 		//_stricmp method to compare s1 and s2
 		int compResult = _stricmp(s1.c_str(), s2.c_str());
 
-		//if the two strings are the same the hero is removed and result is set to true
+		//if the two strings are the same the hero is removed and result is set to true and the loop exits
 		if(compResult == 0) {
 			_heroes.erase(_heroes.begin() + i);
 			result = true;
 			Console::Write(heroRemove + " was removed.\n");
 			break;
 		}
+		//else result = false
 		else {
 			result = false;
 		}
 	}
-	//else result is set to false
+	//if result equals false the console prints the value was not found
 	if (result == false) {
 		Console::Write(heroRemove + " was not found.\n");
 			}
-
+	//return result
 	return result;
 }
-/*
-Loop over the heroes vector and add every hero whose name starts with the string parameter to a vector.Return the vector.
-When checking for a match, make sure to ignore the case of the name and the parameter.
-Use the isPrefix method of the HeroesDB class to check for a prefix.*/
+
 //starts with method
 std::vector<Hero> HeroesDB::StartsWith(std::string heroPrefix) {
-
+	//initalize empty vector
 	std::vector<Hero>samePrefix;
-
+	
+	//for loop to check each variable in the _heroes vector
 	for (int i = 0; i < _heroes.size(); i++) {
+
+		//checks if the current index is equal to the value of prefix and if so adds it to the samePrefix vector
 		bool prefix1 = isPrefix(heroPrefix, _heroes[i].Name());
 		if (prefix1 == true) {
 				samePrefix.push_back(_heroes[i]);
 		}
 	}
+	//a for each loop is used to go through the samePrefix vector and print to the console
 	for (Hero hero : samePrefix)
 		Console::Write(std::to_string(hero.Id()) + ". " + hero.Name() + "\n");
 
+	//return samePrefix
 	return samePrefix;
 }
 
