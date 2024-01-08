@@ -147,10 +147,13 @@ int main()
         CHALLENGE:
 
             loop over the grades vector and print out each grade
-
+            
     */
-
-
+    std::cout << "---GRADES---\n";
+    for (float grade : grades) {
+        std::cout << grade << std::endl;
+    }
+    std::cout << "\n\n";
 
 
 
@@ -194,8 +197,13 @@ int main()
             Print the grades.
 
     */
+    grades.erase(grades.end()-1);
 
-
+    std::cout << "---GRADES WITHOUT LAST ELEMENT---\n";
+    for (float grade : grades) {
+        std::cout << grade << std::endl;
+    }
+    std::cout << "\n\n";
 
 
 
