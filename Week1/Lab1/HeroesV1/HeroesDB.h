@@ -20,9 +20,10 @@ public:
     
         Part A-1: Add a method called ShowHeroes to the HeroesDB class. 
         The method should loop over the _heroes vector and print the hero ID and the hero Name.
-
+        
     */
-
+    //call void ShowHeroes() method
+    void ShowHeroes();
 
     /*
     

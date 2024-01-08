@@ -11,7 +11,16 @@
 	PART A
 
 */
+//show heroes method
+void HeroesDB::ShowHeroes(){
+	//for each loop to go through the _heroes vector
+	for (Hero hero : _heroes)
+		//prints id number and hero to console
+		Console::Write(std::to_string(hero.Id()) + " " + hero.Name()+ "\n");
+}
+//remove heroes method
 
+//starts with method
 
 
 /*

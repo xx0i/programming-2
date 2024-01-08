@@ -50,7 +50,7 @@ int main()
             /*
                 After creating the ShowHeroes method in HeroesDB, add code to case 1 of the switch in main to call the ShowHeroes method.
             */
-
+            heroDB.ShowHeroes();
             break;
         }
         case 2:
