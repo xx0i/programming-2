@@ -170,16 +170,20 @@ int main()
     /*
         INTERMEDIATE LEVEL...
         a way using std::remove_if and a lambda
+    
     highScores.erase(
         std::remove_if(highScores.begin(),
-            highScores.end(),
-            [](int score) { return score < 2500; }),
+                       highScores.end(),
+                       [](int score) { return score < 2500; }),
         highScores.end());
+
+
+    print(highScores);
     */
 
 
     print(highScores);
-
+ 
 
 
     /*
@@ -189,7 +193,25 @@ int main()
             Remove all the failing grades (grades < 59.5).
             Print the grades.
     */
+    std::cout << "----GRADES-----\n";
+    for (auto& grade : grades)
+    {
+        std::cout << grade << "\n";
+    }
 
+    for (size_t i = 0; i < grades.size();)
+    {
+        if (grades[i] < 59.5)
+            grades.erase(grades.begin() + i);
+        else
+            ++i;
+    }
+
+    std::cout << "----GRADES-----\n";
+    for (auto& grade : grades)
+    {
+        std::cout << grade << "\n";
+    }
 
 
 

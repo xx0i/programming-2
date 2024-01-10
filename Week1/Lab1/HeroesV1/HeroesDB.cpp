@@ -100,15 +100,39 @@ void HeroesDB::PrintHeroes(Hero& hero) {
 	Console::WriteLine("\tAPPEARANCE:\n", ConsoleColor::Blue);
 	//prints appearance in white
 	Console::WriteLine("\t\tRace: " + hero.Appearance().Race + "\n", ConsoleColor::White);
+	for (int i = 0; i < hero.Appearance().Height.size(); i++) {
+		Console::WriteLine("\t\tHeight: " + hero.Appearance().Height[i] + "\n");
+	}
+	for (int i = 0; i < hero.Appearance().Weight.size(); i++) {
+		Console::WriteLine("\t\tWeight: " + hero.Appearance().Weight[i] + "\n");
+	}
+	Console::WriteLine("\t\tEye Colour: " + hero.Appearance().EyeColor + "\n");
+	Console::WriteLine("\t\tHair Colour: " + hero.Appearance().HairColor + "\n");
+
 	//prints bio header in blue
 	Console::WriteLine("\tBIO:\n", ConsoleColor::Blue);
+	//prints bio in white
+	Console::WriteLine("\t\tFull Name: " + hero.Biography().FullName + "\n", ConsoleColor::White);
+	Console::WriteLine("\t\tAlter Egos: " + hero.Biography().AlterEgos +"\n");
+	for (int i = 0; i < hero.Biography().Aliases.size(); i++) {
+		Console::WriteLine("\t\tAliases: " + hero.Biography().Aliases[i] + "\n");
+	}
+	Console::WriteLine("\t\tPlace Of Birth: " + hero.Biography().PlaceOfBirth + "\n");
+	Console::WriteLine("\t\tFirst Appearance: " + hero.Biography().FirstAppearance + "\n");
+	Console::WriteLine("\t\tPublisher: " + hero.Biography().Publisher + "\n");
+	Console::WriteLine("\t\tAlignment: " + hero.Biography().Alignment + "\n");
 
 	//prints work header in blue
 	Console::WriteLine("\tWORK:\n", ConsoleColor::Blue);
+	//prints work in white
+	Console::WriteLine("\t\tOccupation: " + hero.Work().Occupation + "\n", ConsoleColor::White);
+	Console::WriteLine("\t\tBase: " + hero.Work().Base + "\n");
 
 	//prints connections header in blue
 	Console::WriteLine("\tCONNECTIONS:\n", ConsoleColor::Blue);
-
+	//prints connections in white
+	Console::WriteLine("\t\tGroup Affiliations: " + hero.Connections().GroupAffiliation + "\n", ConsoleColor::White);
+	Console::WriteLine("\t\tRelatives: " + hero.Connections().Relatives + "\n");
 }
 
 //FindHero method
