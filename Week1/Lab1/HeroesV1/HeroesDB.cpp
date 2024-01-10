@@ -81,15 +81,25 @@ std::vector<Hero> HeroesDB::StartsWith(std::string heroPrefix) {
 
 */
 //PrintHero method
-void HeroesDB::PrintHeroes(Hero hero) {
+void HeroesDB::PrintHeroes(Hero& hero) {
+
 	//prints hero id and name in yellow
 	Console::WriteLine(std::to_string(hero.Id()) + ". " + hero.Name() + "\n", ConsoleColor::Yellow);
+	
 	//prints stats header in blue
 	Console::WriteLine("\tSTATS:\n", ConsoleColor::Blue);
+	//prints stats in white
+	Console::WriteLine("\t\tIntelligence: " + std::to_string(hero.Powerstats().Intelligence) + "\n", ConsoleColor::White);
+	Console::WriteLine("\t\tStrength: " + std::to_string(hero.Powerstats().Strength) + "\n");
+	Console::WriteLine("\t\tSpeed: " + std::to_string(hero.Powerstats().Speed) + "\n");
+	Console::WriteLine("\t\tDurability: " + std::to_string(hero.Powerstats().Durability) + "\n");
+	Console::WriteLine("\t\tPower: " + std::to_string(hero.Powerstats().Power) + "\n");
+	Console::WriteLine("\t\tCombat: " + std::to_string(hero.Powerstats().Combat) + "\n");
 	
 	//prints appearance header in blue
 	Console::WriteLine("\tAPPEARANCE:\n", ConsoleColor::Blue);
-
+	//prints appearance in white
+	Console::WriteLine("\t\tRace: " + hero.Appearance().Race + "\n", ConsoleColor::White);
 	//prints bio header in blue
 	Console::WriteLine("\tBIO:\n", ConsoleColor::Blue);
 
