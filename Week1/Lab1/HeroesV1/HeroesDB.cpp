@@ -87,7 +87,7 @@ void HeroesDB::PrintHeroes(Hero& hero) {
 	Console::WriteLine(std::to_string(hero.Id()) + ". " + hero.Name() + "\n", ConsoleColor::Yellow);
 	
 	//prints stats header in blue
-	Console::WriteLine("\tSTATS:", ConsoleColor::Blue);
+	Console::WriteLine("\tSTATS:", ConsoleColor::Cyan);
 	//prints stats in white
 	Console::WriteLine("\t\tIntelligence: " + std::to_string(hero.Powerstats().Intelligence), ConsoleColor::White);
 	Console::WriteLine("\t\tStrength: " + std::to_string(hero.Powerstats().Strength));
@@ -97,7 +97,7 @@ void HeroesDB::PrintHeroes(Hero& hero) {
 	Console::WriteLine("\t\tCombat: " + std::to_string(hero.Powerstats().Combat));
 	
 	//prints appearance header in blue
-	Console::WriteLine("\tAPPEARANCE:", ConsoleColor::Blue);
+	Console::WriteLine("\tAPPEARANCE:", ConsoleColor::Cyan);
 	//prints appearance in white
 	Console::WriteLine("\t\tRace: " + hero.Appearance().Race, ConsoleColor::White);
 	for (int i = 0; i < hero.Appearance().Height.size(); i++) {
@@ -111,7 +111,7 @@ void HeroesDB::PrintHeroes(Hero& hero) {
 	Console::WriteLine("\t\tHair Colour: " + hero.Appearance().HairColor);
 
 	//prints bio header in blue
-	Console::WriteLine("\tBIO:", ConsoleColor::Blue);
+	Console::WriteLine("\tBIO:", ConsoleColor::Cyan);
 	//prints bio in white
 	Console::WriteLine("\t\tFull Name: " + hero.Biography().FullName, ConsoleColor::White);
 	Console::WriteLine("\t\tAlter Egos: " + hero.Biography().AlterEgos);
@@ -132,13 +132,13 @@ void HeroesDB::PrintHeroes(Hero& hero) {
 	Console::WriteLine("\t\tAlignment: " + hero.Biography().Alignment);
 
 	//prints work header in blue
-	Console::WriteLine("\tWORK:", ConsoleColor::Blue);
+	Console::WriteLine("\tWORK:", ConsoleColor::Cyan);
 	//prints work in white
 	Console::WriteLine("\t\tOccupation: " + hero.Work().Occupation, ConsoleColor::White);
 	Console::WriteLine("\t\tBase: " + hero.Work().Base);
 
 	//prints connections header in blue
-	Console::WriteLine("\tCONNECTIONS:", ConsoleColor::Blue);
+	Console::WriteLine("\tCONNECTIONS:", ConsoleColor::Cyan);
 	//prints connections in white
 	Console::WriteLine("\t\tGroup Affiliations: " + hero.Connections().GroupAffiliation, ConsoleColor::White);
 	Console::WriteLine("\t\tRelatives: " + hero.Connections().Relatives);
