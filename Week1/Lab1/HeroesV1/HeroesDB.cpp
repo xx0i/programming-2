@@ -114,8 +114,9 @@ void HeroesDB::PrintHeroes(Hero& hero) {
 	//prints bio in white
 	Console::WriteLine("\t\tFull Name: " + hero.Biography().FullName + "\n", ConsoleColor::White);
 	Console::WriteLine("\t\tAlter Egos: " + hero.Biography().AlterEgos +"\n");
+	Console::WriteLine("\t\tAliases: ");
 	for (int i = 0; i < hero.Biography().Aliases.size(); i++) {
-		Console::WriteLine("\t\tAliases: " + hero.Biography().Aliases[i] + "\n");
+		Console::WriteLine(hero.Biography().Aliases[i] + ", ");
 	}
 	Console::WriteLine("\t\tPlace Of Birth: " + hero.Biography().PlaceOfBirth + "\n");
 	Console::WriteLine("\t\tFirst Appearance: " + hero.Biography().FirstAppearance + "\n");
