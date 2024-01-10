@@ -85,7 +85,14 @@ int main()
                 Call FindHero passing the string that the user enters and a Hero variable. 
                 if the returned value from FindHero is true, then call PrintHero passing the Hero variable else print out a message that the name was not found.
             */
-
+            std::string look4hero = Input::GetString("Enter the name of the hero to find: ");
+            Hero myHero;
+            if (heroDB.FindHero(look4hero, myHero)) {
+                heroDB.PrintHeroes(myHero);
+            }
+            else {
+                Console::Write(look4hero + " was not found.\n");
+            }
             break;
         }
         case 5:

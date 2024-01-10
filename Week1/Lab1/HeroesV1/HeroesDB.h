@@ -74,7 +74,7 @@ public:
         If the hero is not found, return false.
 
     */
-
+    bool FindHero(std::string heroFind, Hero& hero);
 
 
     /*
@@ -85,7 +85,7 @@ public:
         Make sure to remove the hero from the heroes vector.
 
     */
-
+    
 
 
 
