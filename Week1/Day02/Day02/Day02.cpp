@@ -36,8 +36,25 @@ void printInfo(const std::vector<int>& scores)
     std::cout << "size: " << scores.size() << "\tcapacity: " << scores.capacity() << "\n";
 }
 
+void GetUserInfo(std::string& firstName, std::string& lastName, int& age) {
+    firstName = "Bruce";
+    lastName = "Wayne";
+    age = 35;
+}
+
+void AddGrades(std::vector<float>& courseGrades) {
+    srand((unsigned int)time(NULL));
+    for (int i = 0; i < 10; i++) {
+        courseGrades.push_back(rand()%10001 / 100.0F);
+    }
+}
+
 int main()
 {
+    std::string fName, lName;
+    int myAge;
+    GetUserInfo(fName, lName, myAge);
+    std::cout << "I am " + fName + " " + lName + " and I am " + std::to_string(myAge) + " years old.\n";
     /*
         ╔══════════════════════════════╗
         ║Parameters: Pass by Reference.║
@@ -62,7 +79,10 @@ int main()
 
     */
     std::vector<float> grades;
-
+    AddGrades(grades);
+    std::cout << "----GRADES-----\n";
+    for (auto& grade : grades)
+        std::cout << grade << std::endl;
 
 
     /*

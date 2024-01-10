@@ -11,19 +11,14 @@
 	PART A
 
 */
-//show heroes method
+//ShowHeroes method
 void HeroesDB::ShowHeroes(){
 	//for each loop to go through the _heroes vector
 	for (Hero hero : _heroes)
 		//prints id number and hero to console
 		Console::Write(std::to_string(hero.Id()) + ". " + hero.Name()+ "\n");
 }
-//remove heroes method
-//If the hero is found, remove the hero from the heroes vector.
-//Return true if the hero was found and removed.
-//Return false if the hero was not found.
-//
-//When checking for a match, make sure to ignore the case of the name and the parameter.
+//RemoveHeroes method
 //Use the _stricmp method to compare strings.Note: you’ll need to call c_str() on the std::string when calling the method.
 bool HeroesDB::RemoveHero(std::string heroRemove) {
 	bool result = false;
@@ -57,9 +52,9 @@ bool HeroesDB::RemoveHero(std::string heroRemove) {
 	return result;
 }
 
-//starts with method
+//StartsWith method
 std::vector<Hero> HeroesDB::StartsWith(std::string heroPrefix) {
-	//initalize empty vector
+	//initialize empty vector
 	std::vector<Hero>samePrefix;
 	
 	//for loop to check each variable in the _heroes vector
@@ -72,6 +67,7 @@ std::vector<Hero> HeroesDB::StartsWith(std::string heroPrefix) {
 		}
 	}
 	//a for each loop is used to go through the samePrefix vector and print to the console
+	Console::Write("Found " + std::to_string(samePrefix.size()) + " heroes that start with " + heroPrefix +".\n");
 	for (Hero hero : samePrefix)
 		Console::Write(std::to_string(hero.Id()) + ". " + hero.Name() + "\n");
 
@@ -84,8 +80,30 @@ std::vector<Hero> HeroesDB::StartsWith(std::string heroPrefix) {
 	PART B
 
 */
+//PrintHero method
+void HeroesDB::PrintHeroes(Hero hero) {
+	//prints hero id and name in yellow
+	Console::WriteLine(std::to_string(hero.Id()) + ". " + hero.Name() + "\n", ConsoleColor::Yellow);
+	//prints stats header in blue
+	Console::WriteLine("\tSTATS:\n", ConsoleColor::Blue);
+	
+	//prints appearance header in blue
+	Console::WriteLine("\tAPPEARANCE:\n", ConsoleColor::Blue);
 
+	//prints bio header in blue
+	Console::WriteLine("\tBIO:\n", ConsoleColor::Blue);
 
+	//prints work header in blue
+	Console::WriteLine("\tWORK:\n", ConsoleColor::Blue);
+
+	//prints connections header in blue
+	Console::WriteLine("\tCONNECTIONS:\n", ConsoleColor::Blue);
+
+}
+
+//FindHero method
+
+//RemoveAllHeroes method
 
 
 //DEFINE the method in CPP file

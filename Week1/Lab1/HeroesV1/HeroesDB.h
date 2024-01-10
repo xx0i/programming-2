@@ -61,7 +61,7 @@ public:
         The method should have a Hero parameter passed to it. 
         Print the details of the Hero parameter. (see the screenshot in part B-2) Make sure to match the formatting (color and indention).
     */
-
+    void PrintHeroes(Hero hero);
 
     /*
 
