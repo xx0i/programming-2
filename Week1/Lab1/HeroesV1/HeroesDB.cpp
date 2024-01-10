@@ -86,7 +86,7 @@ void HeroesDB::PrintHeroes(Hero& hero) {
 	//prints hero id and name in yellow
 	Console::WriteLine(std::to_string(hero.Id()) + ". " + hero.Name() + "\n", ConsoleColor::Yellow);
 	
-	//prints stats header in blue
+	//prints stats header in cyan
 	Console::WriteLine("\tSTATS:", ConsoleColor::Cyan);
 	//prints stats in white
 	Console::WriteLine("\t\tIntelligence: " + std::to_string(hero.Powerstats().Intelligence), ConsoleColor::White);
@@ -96,7 +96,7 @@ void HeroesDB::PrintHeroes(Hero& hero) {
 	Console::WriteLine("\t\tPower: " + std::to_string(hero.Powerstats().Power));
 	Console::WriteLine("\t\tCombat: " + std::to_string(hero.Powerstats().Combat));
 	
-	//prints appearance header in blue
+	//prints appearance header in cyan
 	Console::WriteLine("\tAPPEARANCE:", ConsoleColor::Cyan);
 	//prints appearance in white
 	Console::WriteLine("\t\tRace: " + hero.Appearance().Race, ConsoleColor::White);
@@ -110,7 +110,7 @@ void HeroesDB::PrintHeroes(Hero& hero) {
 	Console::WriteLine("\t\tEye Colour: " + hero.Appearance().EyeColor);
 	Console::WriteLine("\t\tHair Colour: " + hero.Appearance().HairColor);
 
-	//prints bio header in blue
+	//prints bio header in cyan
 	Console::WriteLine("\tBIO:", ConsoleColor::Cyan);
 	//prints bio in white
 	Console::WriteLine("\t\tFull Name: " + hero.Biography().FullName, ConsoleColor::White);
@@ -131,13 +131,13 @@ void HeroesDB::PrintHeroes(Hero& hero) {
 	Console::WriteLine("\t\tPublisher: " + hero.Biography().Publisher);
 	Console::WriteLine("\t\tAlignment: " + hero.Biography().Alignment);
 
-	//prints work header in blue
+	//prints work header in cyan
 	Console::WriteLine("\tWORK:", ConsoleColor::Cyan);
 	//prints work in white
 	Console::WriteLine("\t\tOccupation: " + hero.Work().Occupation, ConsoleColor::White);
 	Console::WriteLine("\t\tBase: " + hero.Work().Base);
 
-	//prints connections header in blue
+	//prints connections header in cyan
 	Console::WriteLine("\tCONNECTIONS:", ConsoleColor::Cyan);
 	//prints connections in white
 	Console::WriteLine("\t\tGroup Affiliations: " + hero.Connections().GroupAffiliation, ConsoleColor::White);
