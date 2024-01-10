@@ -84,10 +84,8 @@ public:
         Loop over the heroes vector and add every hero whose name starts with the string parameter to the vector parameter. 
         Make sure to remove the hero from the heroes vector.
 
-    */
+    */void RemoveAllHeroes(std::string removeHero, std::vector<Hero>& heroes);
     
-
-
 
     /*
 

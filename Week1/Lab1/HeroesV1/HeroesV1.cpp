@@ -104,7 +104,18 @@ int main()
                 after calling the method, if the vector is empty, print that “No heroes found that start with <the StartsWith string the user entered>” 
                 else print “The following heroes were removed: “ and loop over the vector calling PrintHero for each hero in the vector.
             */
-
+            std::string prefix4removal = Input::GetString("Enter the start of the name of the heroes to be removed: ");
+            std::vector<Hero>heroesRemoved;
+            heroDB.RemoveAllHeroes(prefix4removal, heroesRemoved);
+            if (heroesRemoved.size() > 0) {
+                Console::Write("The following heroes were removed: \n");
+                for (auto& hero : heroesRemoved) {
+                    heroDB.PrintHeroes(hero);
+                }
+            }
+            else {
+                Console::Write("No heroes found that start with " + prefix4removal + ".\n");
+            }
             break;
         }
         case 6:

@@ -126,7 +126,7 @@ void HeroesDB::PrintHeroes(Hero& hero) {
 			Console::Write(hero.Biography().Aliases[i]);
 		}
 	}
-	Console::WriteLine("\t\tPlace Of Birth: " + hero.Biography().PlaceOfBirth);
+	Console::WriteLine("\n\t\tPlace Of Birth: " + hero.Biography().PlaceOfBirth);
 	Console::WriteLine("\t\tFirst Appearance: " + hero.Biography().FirstAppearance);
 	Console::WriteLine("\t\tPublisher: " + hero.Biography().Publisher);
 	Console::WriteLine("\t\tAlignment: " + hero.Biography().Alignment);
@@ -175,7 +175,21 @@ bool HeroesDB::FindHero(std::string heroFind, Hero& hero) {
 
 
 //RemoveAllHeroes method
+void HeroesDB::RemoveAllHeroes(std::string removeHero, std::vector<Hero>& heroes) {
+	//for loop to check each variable in the _heroes vector
+	for (int i = 0; i < _heroes.size();) {
 
+		//checks if the current index is equal to the value of prefix and if so adds it to the removedHeroes vector and removes it from _heroes vector
+		bool prefix1 = isPrefix(removeHero, _heroes[i].Name());
+		if (prefix1 == true) {
+			heroes.push_back(_heroes[i]);
+			_heroes.erase(_heroes.begin() + i);
+		}
+		else {
+			++i;
+		}
+	}
+}
 
 //DEFINE the method in CPP file
 //  *** don't forget the "HeroesDB::" in front of the method name.
