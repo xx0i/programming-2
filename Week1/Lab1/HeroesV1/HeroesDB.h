@@ -23,7 +23,7 @@ public:
         
     */
     
-    void ShowHeroes();
+    void ShowHeroes(int quantity = 0);
 
     /*
     

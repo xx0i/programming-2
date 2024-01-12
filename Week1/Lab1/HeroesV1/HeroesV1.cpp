@@ -126,7 +126,8 @@ int main()
                 Use the HeroesDB.Count method to get the max value to pass to Input::GetInteger. 
                 Call ShowHeroes and pass in the number that Input::GetInteger returns.
             */
-
+            int quantityNeeded = Input::GetInteger("How many heroes to show? ", 0, heroDB.Count());
+            heroDB.ShowHeroes(quantityNeeded);
             break;
         }
         default:

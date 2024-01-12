@@ -12,11 +12,23 @@
 
 */
 //ShowHeroes method
-void HeroesDB::ShowHeroes(){
-	//for each loop to go through the _heroes vector
-	for (Hero hero : _heroes)
-		//prints id number and hero to console
-		Console::Write(std::to_string(hero.Id()) + ". " + hero.Name()+ "\n");
+void HeroesDB::ShowHeroes(int quantity) {
+//if quantity is greater than 0 (optional parameter is input)
+	if (quantity > 0) {
+		//for loop to go through quantity starting at 0 and going up by 1
+		for (int i = 0; i < quantity; i++) {
+				//prints id number and hero to console
+				Console::Write(std::to_string(_heroes[i].Id()) + ". " + _heroes[i].Name() + "\n");
+			
+			}
+	}
+		//else if quantity is 0 (optional parameter is input as 0 or not input at all)
+		else if (quantity == 0) {
+		//for each loop to go through the _heroes vector
+		for (Hero hero : _heroes)
+			//prints id number and hero to console
+			Console::Write(std::to_string(hero.Id()) + ". " + hero.Name() + "\n");
+	}
 }
 //RemoveHeroes method
 //Use the _stricmp method to compare strings.Note: you’ll need to call c_str() on the std::string when calling the method.
