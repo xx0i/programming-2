@@ -10,6 +10,13 @@ std::string postFix(std::string fileName, int postFixNumber = 1) //postFixNumber
     return fileName + "_" + std::to_string(postFixNumber);
 }
 
+void batTheme(int nas = 13) {
+    for (int i = 0; i < nas; i++) {
+        std::cout << "na ";
+    }
+    std::cout << "Batman\n";
+}
+
 int main()
 {
 
@@ -48,7 +55,8 @@ int main()
 
     */
 
-
+    batTheme();
+    batTheme(6);
 
 
 
@@ -88,4 +96,11 @@ int main()
     */
     std::vector<std::string> JLA = { "Batman", "Wonder Woman", "Superman", "Flash" };
 
+    std::vector<std::string> heroes = JLA;
+    heroes.push_back("Ironman");
+    heroes.push_back("Black Widow");
+    heroes.push_back("Captain America");
+    heroes.push_back("Hawkeye");
+    for (auto& hero : heroes)
+        std::cout << hero << std::endl;
 }
