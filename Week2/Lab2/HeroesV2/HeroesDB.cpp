@@ -40,7 +40,7 @@ std::vector<Hero> HeroesDB::MergeSort(std::vector<Hero>& heroes, SortBy selectio
 //Merge method
 std::vector<Hero> HeroesDB::Merge(std::vector<Hero> left, std::vector<Hero> right, SortBy selection) {
 	std::vector<Hero> result;
-	do {
+	while (left.size() > 0 && right.size() > 0) {
 		int compResult = Hero::Compare(left[1], right[1], selection);
 		if (compResult == 1 || compResult == 0) {
 			result.push_back(left[1]);
@@ -50,22 +50,21 @@ std::vector<Hero> HeroesDB::Merge(std::vector<Hero> left, std::vector<Hero> righ
 			result.push_back(right[1]);
 			right.erase(right.begin());
 		}
+	}
 // Either left or right may have elements left; consume them.
 // (Only one of the following loops will actually be entered.)
-		do {
+		while (left.size() > 0) {
 			result.push_back(left[1]);
 			left.erase(left.begin());
-		} while (left.size() > 0);
+		}
 
-		do {
+		while (left.size() > 0) {
 			result.push_back(right[1]);
 			right.erase(right.begin());
-		} while (left.size() > 0);
-
-	} while (left.size() > 0 && right.size() > 0);
+		}
 	return result;
-
 }
+
 /*
 
 	PART B
