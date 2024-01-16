@@ -12,10 +12,60 @@
 	PART A
 
 */
+//MergeSort method
+std::vector<Hero> HeroesDB::MergeSort(std::vector<Hero>& heroes, SortBy selection) {
+	if (heroes.size() <= 1) {
+		return heroes;
+	}
+	// Recursive case. First, divide the vector into equal-sized sub vectors
+	// consisting of the first half and second half of the vector.
+	// This assumes vectors start at index 0.
+	std::vector<Hero> left;
+	std::vector<Hero> right;
+	for (int i = 0; i < heroes.size(); i++) {
+		if (i < (heroes.size()) / 2) {
+			left.push_back(heroes[i]);
+		}
+		else {
+			right.push_back(heroes[i]);
+		}
+	}
+	// Recursively sort both sub vectors.
+	left = MergeSort(left, selection);
+	right = MergeSort(right, selection);
+	// Then Merge the now-sorted sub vectors.
+	return HeroesDB::Merge(left, right, selection);
+}
 
+//Merge method
+std::vector<Hero> HeroesDB::Merge(std::vector<Hero> left, std::vector<Hero> right, SortBy selection) {
+	std::vector<Hero> result;
+	do {
+		int compResult = Hero::Compare(left[1], right[1], selection);
+		if (compResult == 1 || compResult == 0) {
+			result.push_back(left[1]);
+			left.erase(left.begin());
+		}
+		else {
+			result.push_back(right[1]);
+			right.erase(right.begin());
+		}
+// Either left or right may have elements left; consume them.
+// (Only one of the following loops will actually be entered.)
+		do {
+			result.push_back(left[1]);
+			left.erase(left.begin());
+		} while (left.size() > 0);
 
+		do {
+			result.push_back(right[1]);
+			right.erase(right.begin());
+		} while (left.size() > 0);
 
+	} while (left.size() > 0 && right.size() > 0);
+	return result;
 
+}
 /*
 
 	PART B

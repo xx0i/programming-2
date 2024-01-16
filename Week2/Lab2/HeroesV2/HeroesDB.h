@@ -29,8 +29,11 @@ public:
         You will get the user’s sort by selection in part A-2 and pass it to MergeSort.
     
     */
+    //MergeSort
+    std::vector<Hero> MergeSort(std::vector<Hero>& heroes, SortBy selection);
 
-
+    //Merge method
+    std::vector<Hero> Merge(std::vector<Hero> left, std::vector<Hero> right, SortBy selection);
     /*
     
         Part A-2: Add a method called SortByAttribute to the HeroesDB class. 
