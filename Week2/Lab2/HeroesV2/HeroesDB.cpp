@@ -94,8 +94,7 @@ int HeroesDB::BinarySearch(const std::vector<Hero>& heroes, const std::string se
 	}
 	else {
 		return mid; //searchTerm was found, index is returned
-	}
-		
+	}		
 }
 
 //FindHero method
