@@ -30,10 +30,10 @@ public:
 
 	*/
 	//MergeSort
-	std::vector<Hero> MergeSort(std::vector<Hero>& heroes, SortBy selection);
+	std::vector<Hero> MergeSort(const std::vector<Hero>& heroes, const SortBy selection);
 
 	//Merge
-	std::vector<Hero> Merge(std::vector<Hero>& left, std::vector<Hero>& right, SortBy selection);
+	std::vector<Hero> Merge(std::vector<Hero>& left, std::vector<Hero>& right, const SortBy selection);
 
 	//SortByAttribute
 	void SortByAttribute(SortBy selection);

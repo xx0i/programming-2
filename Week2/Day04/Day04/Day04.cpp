@@ -41,6 +41,45 @@ void Bats (int i) {
 
 }
 
+void BubbleSort(std::vector<int>& A) {
+	int n = A.size();
+	bool swapped;
+	do {
+		swapped = false;
+		for (size_t i = 1; i <= n - 1; i++) {
+			if (A[i - 1] > A[i]) {
+				//std::swap(A[i-1], A[i]);
+				int temp = A[i - 1];
+				A[i - 1] = A[i];
+				A[i] = temp;
+
+				swapped = true;
+			}
+		}
+		n = n - 1;
+	} while (swapped);
+}
+
+void BubbleSort(std::vector<std::string>& A) {
+	int n = A.size();
+	bool swapped;
+	do {
+		swapped = false;
+		for (size_t i = 1; i <= n - 1; i++) {
+			//int compResult = _stricmp(A[i - 1].c_str(), A[i].c_str());
+			if (_stricmp(A[i - 1].c_str(), A[i].c_str())) {
+				//std::swap(A[i-1], A[i]);
+				std::string temp = A[i - 1];
+				A[i - 1] = A[i];
+				A[i] = temp;
+
+				swapped = true;
+			}
+		}
+		n = n - 1;
+	} while (swapped);
+}
+
 int main()
 {
 	/*
@@ -97,6 +136,14 @@ int main()
 	for (auto i : nums)
 		std::cout << i << " ";
 
+	std::cout << "\n-----UNSORTED-----\n";
+		std::vector<int> num2 =  {13,0,420,5,1};
+	for (auto i : num2)
+		std::cout << i << " ";
+	BubbleSort(num2);
+	std::cout << "\n-----SORTED-----\n";
+	for (auto i : num2)
+		std::cout << i << " ";
 	/*
 		╔═════════════════╗
 		║Comparing Strings║
@@ -155,9 +202,12 @@ int main()
 	*/
 	std::vector<std::string> names = { "Wonder Woman", "Superman", "Batman", "Flash", "Aquaman" };
 	//call your BubbleSort on the names vector.
-
-
 	//print the sorted vector.
+	std::cout << "\n-----UNSORTED-----\n";
+	for (auto& name : names)
+		std::cout << name << "\n";
+	BubbleSort(names);
+	std::cout << "-----SORTED-----\n";
 	for (auto& name : names)
 		std::cout << name << "\n";
 }

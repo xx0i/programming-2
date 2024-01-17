@@ -13,7 +13,7 @@
 
 */
 //MergeSort method
-std::vector<Hero> HeroesDB::MergeSort(std::vector<Hero>& heroes, SortBy selection) {
+std::vector<Hero> HeroesDB::MergeSort(const std::vector<Hero>& heroes, const SortBy selection) {
 	if (heroes.size() <= 1) {
 		return heroes;
 	}
@@ -38,7 +38,7 @@ std::vector<Hero> HeroesDB::MergeSort(std::vector<Hero>& heroes, SortBy selectio
 }
 
 //Merge method
-std::vector<Hero> HeroesDB::Merge(std::vector<Hero>& left, std::vector<Hero>& right, SortBy selection) {
+std::vector<Hero> HeroesDB::Merge(std::vector<Hero>& left, std::vector<Hero>& right, const SortBy selection) {
 	std::vector<Hero> result;
 	while (left.size() > 0 && right.size() > 0) {
 		int compResult = Hero::Compare(left[0], right[0], selection);
