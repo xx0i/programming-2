@@ -34,15 +34,15 @@ std::vector<Hero> HeroesDB::MergeSort(std::vector<Hero>& heroes, SortBy selectio
 	left = MergeSort(left, selection);
 	right = MergeSort(right, selection);
 	// Then Merge the now-sorted sub vectors.
-	return HeroesDB::Merge(left, right, selection);
+	return Merge(left, right, selection);
 }
 
 //Merge method
-std::vector<Hero> HeroesDB::Merge(std::vector<Hero> left, std::vector<Hero> right, SortBy selection) {
+std::vector<Hero> HeroesDB::Merge(std::vector<Hero>& left, std::vector<Hero>& right, SortBy selection) {
 	std::vector<Hero> result;
 	while (left.size() > 0 && right.size() > 0) {
 		int compResult = Hero::Compare(left[0], right[0], selection);
-		if (compResult == 1 || compResult == 0) {
+		if (compResult == -1 || compResult == 0) {
 			result.push_back(left[0]);
 			left.erase(left.begin());
 		}
@@ -58,11 +58,18 @@ std::vector<Hero> HeroesDB::Merge(std::vector<Hero> left, std::vector<Hero> righ
 		left.erase(left.begin());
 	}
 
-	while (left.size() > 0) {
+	while (right.size() > 0) {
 		result.push_back(right[0]);
 		right.erase(right.begin());
 	}
 	return result;
+}
+
+//SortByAttribute method
+void HeroesDB::SortByAttribute(SortBy selection) {
+	std::vector<Hero> newHeroVector = MergeSort(_heroes, selection);
+	for (int i = 0; i < newHeroVector.size(); i++)
+		Console::WriteLine(std::to_string(newHeroVector[i].Id()) + ":\t" + newHeroVector[i].GetSortByAttribute(selection) + " " + newHeroVector[i].Name());
 }
 
 /*
