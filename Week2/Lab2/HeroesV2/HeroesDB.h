@@ -30,10 +30,10 @@ public:
 
 	*/
 	//MergeSort
-	std::vector<Hero> MergeSort(const std::vector<Hero>& heroes, const SortBy selection);
+	std::vector<Hero> MergeSort(const std::vector<Hero>& heroes, const SortBy& selection);
 
 	//Merge
-	std::vector<Hero> Merge(std::vector<Hero>& left, std::vector<Hero>& right, const SortBy selection);
+	std::vector<Hero> Merge(std::vector<Hero>& left, std::vector<Hero>& right, const SortBy& selection);
 
 	/*
 
@@ -50,7 +50,7 @@ public:
 
 	*/
 	//SortByAttribute
-	void SortByAttribute(SortBy selection);
+	void SortByAttribute(const SortBy& selection);
 
 	/*
 
@@ -62,7 +62,7 @@ public:
 
 	*/
 	//BinarySearch method
-
+	int BinarySearch(const std::vector<Hero>& heroes, const std::string searchTerm, const int low, const int high);
 
 	/*
 

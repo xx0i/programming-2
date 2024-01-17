@@ -13,7 +13,7 @@
 
 */
 //MergeSort method
-std::vector<Hero> HeroesDB::MergeSort(const std::vector<Hero>& heroes, const SortBy selection) {
+std::vector<Hero> HeroesDB::MergeSort(const std::vector<Hero>& heroes, const SortBy& selection) {
 	if (heroes.size() <= 1) {
 		return heroes;
 	}
@@ -38,7 +38,7 @@ std::vector<Hero> HeroesDB::MergeSort(const std::vector<Hero>& heroes, const Sor
 }
 
 //Merge method
-std::vector<Hero> HeroesDB::Merge(std::vector<Hero>& left, std::vector<Hero>& right, const SortBy selection) {
+std::vector<Hero> HeroesDB::Merge(std::vector<Hero>& left, std::vector<Hero>& right, const SortBy& selection) {
 	std::vector<Hero> result;
 	while (left.size() > 0 && right.size() > 0) {
 		int compResult = Hero::Compare(left[0], right[0], selection);
@@ -66,7 +66,7 @@ std::vector<Hero> HeroesDB::Merge(std::vector<Hero>& left, std::vector<Hero>& ri
 }
 
 //SortByAttribute method
-void HeroesDB::SortByAttribute(SortBy selection) {
+void HeroesDB::SortByAttribute(const SortBy& selection) {
 	std::vector<Hero> newHeroVector = MergeSort(_heroes, selection);
 	for (int i = 0; i < newHeroVector.size(); i++)
 		Console::WriteLine(std::to_string(newHeroVector[i].Id()) + ":\t" + newHeroVector[i].GetSortByAttribute(selection) + " " + newHeroVector[i].Name());
@@ -78,10 +78,30 @@ void HeroesDB::SortByAttribute(SortBy selection) {
 
 */
 //BinarySearch method
+// initially called with low = 0, high = N-1. heroes is a sorted vector.
+int HeroesDB::BinarySearch(const std::vector<Hero>& heroes, const std::string searchTerm, const int low, const int high) {
+	if (high < low) {
+		return -1;   //searchTerm not found
+	}
+	int mid = (low + high) / 2;
+
+	int compResult = _stricmp(searchTerm.c_str(), heroes[mid].Name().c_str());
+	if (compResult <= -1) {
+		return BinarySearch(heroes, searchTerm, low, mid - 1);
+	}
+	else if (compResult >= 1) {
+		return BinarySearch(heroes, searchTerm, mid + 1, high);
+	}
+	else {
+		return mid; //searchTerm was found, index is returned
+	}
+		
+}
 
 //FindHero method
 
 //GroupHeroes method
+
 
 //PrintGroupCounts method
 
