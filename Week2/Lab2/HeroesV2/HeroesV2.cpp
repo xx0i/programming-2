@@ -47,7 +47,8 @@ int main()
 				Using Input.getString, ask the user to enter the name to find.
 				Call the FindHero method and pass the string the user entered.
 			*/
-
+			std::string hero2find = Input::GetString("Please enter the name of the hero to find: ");
+			heroDB.FindHero(hero2find);
 			break;
 		}
 		case 4:

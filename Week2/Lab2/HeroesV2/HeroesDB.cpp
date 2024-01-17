@@ -94,15 +94,26 @@ int HeroesDB::BinarySearch(const std::vector<Hero>& heroes, const std::string se
 	}
 	else {
 		return mid; //searchTerm was found, index is returned
-	}		
+	}
 }
 
 //FindHero method
+void HeroesDB::FindHero(const std::string& heroName) {
+	int searchResult = BinarySearch(_heroes, heroName, 0, (_heroes.size() - 1));
+	//if the found index is -1, print “heroName is not found” otherwise print “insert heroName was found at index ___”.
+	if (searchResult == -1) {
+		Console::Write(heroName + " was not found.\n");
+	}
+	else {
+		Console::Write(heroName + " was found at index " + std::to_string(searchResult) + "\n");
+	}
+}
 
 //GroupHeroes method
 
 
 //PrintGroupCounts method
+
 
 
 

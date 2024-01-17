@@ -77,7 +77,7 @@ public:
 
 	*/
 	//FindHero method
-
+	void FindHero(const std::string& heroName);
 
 	/*
 
