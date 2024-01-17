@@ -77,7 +77,13 @@ void HeroesDB::SortByAttribute(SortBy selection) {
 	PART B
 
 */
+//BinarySearch method
 
+//FindHero method
+
+//GroupHeroes method
+
+//PrintGroupCounts method
 
 
 

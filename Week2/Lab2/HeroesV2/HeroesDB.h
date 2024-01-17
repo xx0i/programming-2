@@ -35,8 +35,6 @@ public:
 	//Merge
 	std::vector<Hero> Merge(std::vector<Hero>& left, std::vector<Hero>& right, const SortBy selection);
 
-	//SortByAttribute
-	void SortByAttribute(SortBy selection);
 	/*
 
 		Part A-2: Add a method called SortByAttribute to the HeroesDB class.
@@ -51,8 +49,8 @@ public:
 
 
 	*/
-
-
+	//SortByAttribute
+	void SortByAttribute(SortBy selection);
 
 	/*
 
@@ -63,6 +61,7 @@ public:
 		Your code must follow the pseudo-code.
 
 	*/
+	//BinarySearch method
 
 
 	/*
@@ -77,7 +76,7 @@ public:
 
 
 	*/
-
+	//FindHero method
 
 
 	/*
@@ -102,6 +101,7 @@ public:
 
 
 	*/
+	//GroupHeroes method
 
 
 	/*
@@ -112,7 +112,7 @@ public:
 		Loop over the map and print each key and the count of the vector for each key.
 
 	*/
-
+	//PrintGroupCounts method
 
 
 	/*
