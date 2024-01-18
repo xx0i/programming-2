@@ -7,6 +7,7 @@
 #include "enums.h"
 
 
+
 class HeroesDB : public JSONBase
 {
 public:
@@ -102,7 +103,7 @@ public:
 
 	*/
 	//GroupHeroes method
-
+	void GroupHeroes();
 
 	/*
 

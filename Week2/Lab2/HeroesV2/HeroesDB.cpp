@@ -110,7 +110,14 @@ void HeroesDB::FindHero(const std::string& heroName) {
 }
 
 //GroupHeroes method
-
+void HeroesDB::GroupHeroes() {
+	//std::map<char, std::vector<Hero>> _groupedHeroes;
+	for (size_t i = 0; i < _heroes.size(); i++) {
+		std::string heroName = _heroes[i].Name();
+		char letter = tolower(heroName[0]);
+		_groupedHeroes[letter].push_back(_heroes[i]);
+	}
+}
 
 //PrintGroupCounts method
 
