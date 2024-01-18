@@ -56,7 +56,7 @@ int main()
 			/*
 				After creating the PrintGroupCounts method in HeroesDB (part B-4), add code to case 4 to call the PrintGroupCounts method.
 			*/
-
+			heroDB.PrintGroupCounts();
 			break;
 		}
 		case 5:
