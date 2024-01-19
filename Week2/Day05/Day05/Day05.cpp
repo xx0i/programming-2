@@ -95,10 +95,30 @@ int main()
 			Add students and grades to your map.
 
 	*/
+	std::map<std::string, double>grades;
+	auto gradesInserted = grades.insert(std::make_pair("Jennifer", rand() % 101));
+	if (gradesInserted.second == false)
+		std::cout << "The student was already in the course. \n";
+	else
+		std::cout << "The student was added.\n";
+	grades["Rebecca"] = rand() % 101;
+	grades["Michelle"] = rand() % 101;
+	grades["Elle"] = rand() % 101;
+	grades["Ariel"] = rand() % 101;
 
+	//LECTURE NOTES
+	std::map<std::string, float>menu; //type of key is string (name of item), type of value is float(price of item)
 
+	std::string key = "veggie burger";
+	float value = 1.99F;
+	menu[key] = value;
+	menu["cheese burger"] = 1.99F;
+	menu["hamburger"] = 1.99F;
 
-
+	auto result = menu.insert(std::make_pair("turkey burger", 1.99F));
+	if (result.second) {
+		std::cout << "turkey burger was added to the menu \n";
+	}
 
 
 	/*
@@ -140,7 +160,10 @@ int main()
 			Loop over your grades map and print each student name and grade.
 
 	*/
-
+	for (const auto& [student, grade] : grades)
+	{
+		std::cout << student + ": " + std::to_string(grade) + "\n";
+	}
 
 
 	/*

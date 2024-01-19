@@ -150,7 +150,7 @@ public:
 
 	*/
 	//RemoveHero
-
+	void RemoveHero(const std::string& name);
 
 private:
 	std::vector<Hero> _heroes;

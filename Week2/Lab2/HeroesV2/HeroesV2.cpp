@@ -77,7 +77,8 @@ int main()
 				Using Input.getString, ask the user to enter the letter to find.
 				Call RemoveHero passing the string that the user enters.
 			*/
-
+			std::string heroName = Input::GetString("Please enter the name of the hero to remove: ");
+			heroDB.RemoveHero(heroName);
 			break;
 		}
 		default:

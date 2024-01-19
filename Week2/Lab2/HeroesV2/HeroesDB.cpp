@@ -154,12 +154,45 @@ void HeroesDB::FindHeroesByLetter(const std::string& letter) {
 	}
 	else //the key was not found
 	{
-		Console::Write("No heroes were found that start with " + letter);
+		Console::Write("No heroes were found that start with " + letter + "\n");
 	}
 }
 
 //RemoveHero method
+void HeroesDB::RemoveHero(const std::string& name) {
+	if (_groupedHeroes.empty()) {
+		GroupHeroes(); //_groupHeroes map is empty until GroupHeroes runs once
+	}
+	char letter = tolower(name[0]);
 
+	//	Check if the _groupedHeroes map contains a key with the first letter of the name.
+	std::map<char, std::vector<Hero>>::iterator isFound = _groupedHeroes.find(letter);
+
+	if (isFound != _groupedHeroes.end()) //if true, we found the key
+	{
+		for (const auto& hero : _groupedHeroes[letter]) {
+			int searchResult = BinarySearch(_groupedHeroes[letter], name, 0, _groupedHeroes[letter].size() - 1);
+			int searchResult2 = BinarySearch(_heroes, name, 0, _heroes.size() - 1);
+			if (searchResult != -1) {
+				_groupedHeroes[letter].erase(_groupedHeroes[letter].begin() + searchResult);
+				_heroes.erase(_heroes.begin() + searchResult2);
+				Console::Write(name + " was removed\n");
+				if (_groupedHeroes[letter].size() <= 0) {
+					_groupedHeroes.erase(letter);
+				}
+				break;
+			}
+			else {
+				Console::Write(name + " was not found\n");
+				break;
+			}
+		}
+	}
+	else //the key was not found
+	{
+		Console::Write(name + " was not found\n");
+	}
+}
 
 HeroesDB::HeroesDB()
 {
