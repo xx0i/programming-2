@@ -123,22 +123,12 @@ void HeroesDB::GroupHeroes() {
 void HeroesDB::PrintGroupCounts() {
 	if (_groupedHeroes.empty()) {
 		GroupHeroes(); //_groupHeroes map is empty until GroupHeroes runs once
-		//Loop over the map and print each key and the count of the vector for each key
-		std::cout << "Key: Hero Count\n";
-		for (const auto& [letterKey, heroAmount] : _groupedHeroes)
-		{
-			Console::WriteLine(std::string(1, letterKey) + ": " + std::to_string(heroAmount.size()));
-		}
 	}
-	else {
-		//else statement with the actual printing code repeated must be included, in case the user were to select case 4
-		// more than once, since the map populates the first time the PrintGroupCounts() method is called, that way the
-		// user will still get the desired output if they select case 4 again
-		std::cout << "Key: Hero Count\n";
-		for (const auto& [letterKey, heroAmount] : _groupedHeroes)
-		{
-			Console::WriteLine(std::string(1, letterKey) + ": " + std::to_string(heroAmount.size()));
-		}
+	//Loop over the map and print each key and the count of the vector for each key
+	std::cout << "Key: Hero Count\n";
+	for (const auto& [letterKey, heroAmount] : _groupedHeroes)
+	{
+		Console::WriteLine(std::string(1, letterKey) + ": " + std::to_string(heroAmount.size()));
 	}
 }
 
@@ -147,11 +137,28 @@ void HeroesDB::PrintGroupCounts() {
 	PART C
 
 */
+//FindHeroesByLetter method
+void HeroesDB::FindHeroesByLetter(const std::string& letter) {
+	char letterKey = tolower(letter[0]);
 
+	if (_groupedHeroes.empty()) {
+		GroupHeroes(); //_groupHeroes map is empty until GroupHeroes runs once
+	}
+	std::map<char, std::vector<Hero>>::iterator isFound = _groupedHeroes.find(letterKey);
 
+	if (isFound != _groupedHeroes.end()) //if true, we found the key
+	{
+		for (const auto& hero : _groupedHeroes[letterKey]) {
+			Console::Write(std::to_string(hero.Id()) + ": " + hero.Name() + "\n");
+		}
+	}
+	else //the key was not found
+	{
+		Console::Write("No heroes were found that start with " + letter);
+	}
+}
 
-
-
+//RemoveHero method
 
 
 HeroesDB::HeroesDB()

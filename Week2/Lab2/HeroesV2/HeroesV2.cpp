@@ -66,7 +66,8 @@ int main()
 				Using Input.getString, ask the user to enter the letter to find.
 				Call FindHeroesByLetter passing the string that the user enters.
 			*/
-
+			std::string letter2find = Input::GetString("Please enter the first letter of the heroes to find: ");
+			heroDB.FindHeroesByLetter(letter2find);
 			break;
 		}
 		case 6:

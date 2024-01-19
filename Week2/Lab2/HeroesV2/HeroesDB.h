@@ -130,7 +130,8 @@ public:
 		Else, loop over the vector of heroes for the key and print the ID and name.
 
 	*/
-
+	//FindHeroesByLetter
+	void FindHeroesByLetter(const std::string& letter);
 
 	/*
 
@@ -148,6 +149,7 @@ public:
 
 
 	*/
+	//RemoveHero
 
 
 private:
