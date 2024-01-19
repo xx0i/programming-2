@@ -199,6 +199,12 @@ int main()
 			else print out a message that the student was not found
 
 	*/
+	std::string studentName = "Ariel";
+	auto studentFound = grades.find(studentName);
+	if (studentFound != grades.end())
+		std::cout << studentName << " has a grade of " << studentFound->second << ".\n";
+	else
+		std::cout << studentName << " was not in the course.\n";
 
 
 
@@ -224,4 +230,6 @@ int main()
 			Pick any student and curve the grade (add 5) that is stored in the grades map
 
 	*/
+	grades[studentName] = std::min<double>(100, grades[studentName] + 5);
+	std::cout << "The grade for " << studentName << " is now " << grades[studentName] << ".\n";
 }
