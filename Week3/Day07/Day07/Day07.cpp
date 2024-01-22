@@ -2,6 +2,8 @@
 //
 
 #include <iostream>
+#include "Pickaxe.h"
+#include "Person.h"
 
 
 /*              CLASSESS
@@ -45,10 +47,11 @@
 int main()
 {
     /*
-        Lecture code: add a Car class
+        Lecture code: add a Pickaxe class
     
     */
-
+    Pickaxe picky;
+    std::string WhatDidIHit = picky.Swing();
     /*
         CHALLENGE:
 
@@ -104,7 +107,8 @@ int main()
         CHALLENGE:
             write an ItsMyBirthday method. increment age and print out a happy message.
     */
-
+    Person person1;
+    person1.ItsMyBirthday(12);
 
 
 
