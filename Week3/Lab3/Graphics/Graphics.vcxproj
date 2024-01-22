@@ -143,6 +143,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\..\Shared\Console\Console.h" />
     <ClInclude Include="..\..\..\Shared\Input\Input.h" />
+    <ClInclude Include="Point2D.h" />
     <ClInclude Include="Tester.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
