@@ -19,14 +19,14 @@ void Shape::setColour(ConsoleColor newColour) {
 Shape::Shape(Point2D const point, ConsoleColor const colour) : startPt_(point), colour_(colour){
 }
 
-//Second constructor takes 3 parametersUse the x and y parameters to initialize the startPt. Use the ConsoleColor parameter to set the color.
+//Second constructor takes 3 parameters. Use the x and y parameters to initialize the startPt. Use the ConsoleColor parameter to set the color.
 Shape::Shape(int const x, int const y, ConsoleColor const colour) : startPt_(x, y), colour_(colour) {
 }
 
 //draw method
 void Shape::draw() {
 	Console::SetBackgroundColor(colour_);
-	//Console::SetCursorPosition(x, y);
+	Console::SetCursorPosition(startPt_.x_,startPt_.y_);
 	Console::Write(" ");
 	Console::Reset();
 }

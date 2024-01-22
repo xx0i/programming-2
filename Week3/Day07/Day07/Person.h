@@ -7,5 +7,13 @@ class Person
 
 public:
 	void ItsMyBirthday(int age);
+
+	//accessors
+	int Age();
+	std::string Name();
+
+	//mutators
+	void Age(int age);
+	void Name(std::string name);
 };
 

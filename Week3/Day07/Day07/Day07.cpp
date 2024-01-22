@@ -52,6 +52,8 @@ int main()
     */
     Pickaxe picky;
     std::string WhatDidIHit = picky.Swing();
+    picky.Label("Stone Crusher");      //calls the setter
+    std::string label = picky.Label(); //calls the getter
     /*
         CHALLENGE:
 
