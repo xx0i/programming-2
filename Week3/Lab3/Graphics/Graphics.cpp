@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <memory>
 #include "Tester.h"
+#include "Shape.h"
 
 
 
@@ -52,6 +53,18 @@ int main()
 
 
 			*/
+			//generates a random x value, y value, and random colour
+			int x = (rand() % Console::GetWindowWidth());
+			int y = (rand() % Console::GetWindowHeight());
+			ConsoleColor colour = ConsoleColor (1 + rand() % 7); 
+			//random colour between 1 - 7 and not the range of the whole enum because 0 is black and wouldnt be visible, there is no 8, and 9 is default
+
+			//generates random point
+			Point2D point(x, y);
+
+			//creates Shape object and draw method
+			Shape shape(point, colour);
+			shape.draw();
 
 			break;
 		}
