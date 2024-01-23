@@ -20,10 +20,10 @@ public:
 	Shape(int const x, int const y, ConsoleColor const colour);
 
 	//draw method
-	void draw();
+	virtual void draw();
 
 	//member fields Point2D startPt, ConsoleColor colour
-private:
+protected:
 	Point2D startPt_;
 	ConsoleColor colour_;
 };

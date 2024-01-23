@@ -5,7 +5,7 @@
 #include <memory>
 #include "Tester.h"
 #include "Shape.h"
-
+#include "Line.h"
 
 
 int main()
@@ -57,7 +57,7 @@ int main()
 			int x = (rand() % Console::GetWindowWidth());
 			int y = (rand() % Console::GetWindowHeight());
 			ConsoleColor colour = ConsoleColor (1 + rand() % 7); 
-			//random colour between 1 - 7 and not the range of the whole enum because 0 is black and wouldnt be visible, there is no 8, and 9 is default
+			//random colour between 1 - 7 and not the range of the whole enum because 0 is black and wouldn't be visible, there is no 8, and 9 is default
 
 			//generates random point
 			Point2D point(x, y);
@@ -87,6 +87,22 @@ int main()
 					Call draw on the Line instance.
 
 			*/
+			// Generate 2 random Point2D points with an x,y anywhere in the console. Use those points to create a Line instance with any color you want.Call draw on the Line instance
+			//generates a random x value, y value, and random colour
+			int x1 = (rand() % Console::GetWindowWidth());
+			int y1 = (rand() % Console::GetWindowHeight());
+			int x2 = (rand() % Console::GetWindowWidth());
+			int y2 = (rand() % Console::GetWindowHeight());
+			ConsoleColor colour = ConsoleColor(1 + rand() % 7);
+			//random colour between 1 - 7 and not the range of the whole enum because 0 is black and wouldn't be visible, there is no 8, and 9 is default
+
+			//generates 2 random points
+			Point2D point1(x1, y1);
+			Point2D point2(x2, y2);
+
+			//creates line object and draw method
+			Line line(point1, point2, colour);
+			line.draw();
 
 			break;
 		}
