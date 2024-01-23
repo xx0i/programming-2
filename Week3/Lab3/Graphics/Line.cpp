@@ -48,6 +48,6 @@ void Line::PlotLine(int x0, int y0, int const x1, int const y1) {
 void Line::draw()
 {
 	Console::SetBackgroundColor(colour_);
-	PlotLine(startPt_.x_, endPt_.x_, startPt_.y_, endPt_.y_);
+	PlotLine(startPt_.x_, startPt_.y_, endPt_.x_, endPt_.y_);
 	Console::Reset();
 }
