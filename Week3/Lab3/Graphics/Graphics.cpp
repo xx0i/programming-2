@@ -139,12 +139,12 @@ int main()
 			int height = (rand() % Console::GetWindowHeight());
 			ConsoleColor colour = ConsoleColor(1 + rand() % 7);
 			//random colour between 1 - 7 and not the range of the whole enum because 0 is black and wouldn't be visible, there is no 8, and 9 is default
-			
+
 			if (x + width > Console::GetWindowWidth()) {
-				width
+				width -= ((x + width) % Console::GetWindowWidth());
 			}
 			if (y + height > Console::GetWindowHeight()) {
-				height = (y + height)-Console::GetWindowHeight() % (y + height);
+				height -= ((y + height) % Console::GetWindowHeight());
 			}
 
 
