@@ -23,6 +23,7 @@ public:
 	void draw();
 
 private:
+	//Point2D member fields p2 and p3
 	Point2D p2_;
 	Point2D p3_;
 };

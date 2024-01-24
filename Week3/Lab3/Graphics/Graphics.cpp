@@ -8,6 +8,7 @@
 #include "Line.h"
 #include "Rectangle.h"
 #include "Triangle.h"
+#include "Circle.h"
 
 
 int main()
@@ -197,7 +198,7 @@ int main()
 			Point2D point2(x2, y2);
 			Point2D point3(x3, y3);
 
-			//creates line object and draw method
+			//creates triangle object and draw method
 			Triangle triangle(point1, point2, point3, colour);
 			triangle.draw();
 
@@ -228,6 +229,22 @@ int main()
 
 
 			*/
+			//generates a random x value, y value, and a random colour
+			int x = (rand() % Console::GetWindowWidth());
+			int y = (rand() % Console::GetWindowHeight());
+			ConsoleColor colour = ConsoleColor(1 + rand() % 7);
+			//random colour between 1 - 7 and not the range of the whole enum because 0 is black and wouldn't be visible, there is no 8, and 9 is default
+
+			//generates random point
+			Point2D point(x, y);
+			
+			//generates a random radius value
+			int maxRadius = (0);
+			int radius = (rand() % maxRadius);
+
+			//creates circle object and draw method
+			Circle circle(radius ,point, colour);
+			circle.draw();
 
 			break;
 		}
