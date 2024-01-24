@@ -7,6 +7,7 @@
 #include "Shape.h"
 #include "Line.h"
 #include "Rectangle.h"
+#include "Triangle.h"
 
 
 int main()
@@ -181,6 +182,24 @@ int main()
 
 
 			*/
+			//generates 3 random pairs of x values and y values, and a random colour
+			int x1 = (rand() % Console::GetWindowWidth());
+			int y1 = (rand() % Console::GetWindowHeight());
+			int x2 = (rand() % Console::GetWindowWidth());
+			int y2 = (rand() % Console::GetWindowHeight());
+			int x3 = (rand() % Console::GetWindowWidth());
+			int y3 = (rand() % Console::GetWindowHeight());
+			ConsoleColor colour = ConsoleColor(1 + rand() % 7);
+			//random colour between 1 - 7 and not the range of the whole enum because 0 is black and wouldn't be visible, there is no 8, and 9 is default
+
+			//generates 3 random points
+			Point2D point1(x1, y1);
+			Point2D point2(x2, y2);
+			Point2D point3(x3, y3);
+
+			//creates line object and draw method
+			Triangle triangle(point1, point2, point3, colour);
+			triangle.draw();
 
 			break;
 		}
