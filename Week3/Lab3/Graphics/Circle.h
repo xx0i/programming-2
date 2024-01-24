@@ -21,7 +21,7 @@ public:
 	void DrawCircle(int const xc, int const yc, int const r);
 	
 	//draw method
-	void draw();
+	void draw()override;
 
 private:
 	//int member field radius

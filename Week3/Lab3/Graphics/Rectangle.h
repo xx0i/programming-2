@@ -18,7 +18,7 @@ public:
 	Rectangle(int const width, int const height, Point2D const startPt, ConsoleColor const colour);
 
 	//draw method
-	void draw();
+	void draw() override;
 
 private:
 	//int member fields width and height

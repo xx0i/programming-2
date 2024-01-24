@@ -19,7 +19,7 @@ public:
 	void PlotLine(int x0, int y0, int const x1, int const y1);
 
 	//draw method
-	void draw();
+	void draw()override;
 
 private:
 	//point2D member field endPt

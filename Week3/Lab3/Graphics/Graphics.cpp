@@ -147,6 +147,7 @@ int main()
 				height = (y + height)-Console::GetWindowHeight() % (y + height);
 			}
 
+
 			//generates a random point
 			Point2D point(x, y);
 
@@ -239,8 +240,13 @@ int main()
 			Point2D point(x, y);
 			
 			//generates a random radius value
-			int maxRadius = (0);
-			int radius = (rand() % maxRadius);
+			//finds the distance between the point and each edge of the console window
+			int d1 = abs(x - 0);//left
+			int d2 = abs(x - Console::GetWindowWidth());//right
+			int d3 = abs(y - Console::GetWindowHeight());//top
+			int d4 =  abs(y - 0);//bottom
+			int minDistance = std::min(std::min(d1,d2),std::min(d3,d4)); //finds the min of all distances
+			int radius = (rand() % minDistance);
 
 			//creates circle object and draw method
 			Circle circle(radius ,point, colour);

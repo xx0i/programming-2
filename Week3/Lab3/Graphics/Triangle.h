@@ -20,7 +20,7 @@ public:
 	Triangle(Point2D const p1, Point2D const p2, Point2D const p3, ConsoleColor const colour);
 
 	//draw method
-	void draw();
+	void draw()override;
 
 private:
 	//Point2D member fields p2 and p3
