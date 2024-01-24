@@ -139,6 +139,7 @@
     <ClCompile Include="..\..\..\Shared\Input\Input.cpp" />
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="Line.cpp" />
+    <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="Shape.cpp" />
     <ClCompile Include="Tester.cpp" />
   </ItemGroup>
@@ -147,6 +148,7 @@
     <ClInclude Include="..\..\..\Shared\Input\Input.h" />
     <ClInclude Include="Line.h" />
     <ClInclude Include="Point2D.h" />
+    <ClInclude Include="Rectangle.h" />
     <ClInclude Include="Shape.h" />
     <ClInclude Include="Tester.h" />
   </ItemGroup>

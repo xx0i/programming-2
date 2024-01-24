@@ -6,6 +6,7 @@
 #include "Tester.h"
 #include "Shape.h"
 #include "Line.h"
+#include "Rectangle.h"
 
 
 int main()
@@ -53,7 +54,7 @@ int main()
 
 
 			*/
-			//generates a random x value, y value, and random colour
+			//generates a random x value, y value, and a random colour
 			int x = (rand() % Console::GetWindowWidth());
 			int y = (rand() % Console::GetWindowHeight());
 			ConsoleColor colour = ConsoleColor(1 + rand() % 7);
@@ -87,8 +88,7 @@ int main()
 					Call draw on the Line instance.
 
 			*/
-			// Generate 2 random Point2D points with an x,y anywhere in the console. Use those points to create a Line instance with any color you want.Call draw on the Line instance
-			//generates a random x value, y value, and random colour
+			//generates 2 random pairs of x values and y values, and a random colour
 			int x1 = (rand() % Console::GetWindowWidth());
 			int y1 = (rand() % Console::GetWindowHeight());
 			int x2 = (rand() % Console::GetWindowWidth());
@@ -130,6 +130,27 @@ int main()
 					•	Call draw on the Rectangle instance.
 
 			*/
+			//generates a random x value, y value, a random width value, a random height value, and a random colour
+			int x = (rand() % Console::GetWindowWidth());
+			int y = (rand() % Console::GetWindowHeight());
+			int width = (rand() % Console::GetWindowWidth());
+			int height = (rand() % Console::GetWindowHeight());
+			ConsoleColor colour = ConsoleColor(1 + rand() % 7);
+			//random colour between 1 - 7 and not the range of the whole enum because 0 is black and wouldn't be visible, there is no 8, and 9 is default
+			
+			if (x + width > Console::GetWindowWidth()) {
+				width = (x + width) - Console::GetWindowWidth() % (x + width);
+			}
+			if (y + height > Console::GetWindowHeight()) {
+				height = (y + height)-Console::GetWindowHeight() % (y + height);
+			}
+
+			//generates a random point
+			Point2D point(x, y);
+
+			//creates rectangle object and draw method
+			Rectangle rectangle(width, height, point, colour);
+			rectangle.draw();
 
 			break;
 		}
