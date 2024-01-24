@@ -141,7 +141,7 @@ int main()
 			//random colour between 1 - 7 and not the range of the whole enum because 0 is black and wouldn't be visible, there is no 8, and 9 is default
 			
 			if (x + width > Console::GetWindowWidth()) {
-				width = (x + width) - Console::GetWindowWidth() % (x + width);
+				width
 			}
 			if (y + height > Console::GetWindowHeight()) {
 				height = (y + height)-Console::GetWindowHeight() % (y + height);
@@ -230,9 +230,9 @@ int main()
 
 
 			*/
-			//generates a random x value, y value, and a random colour
-			int x = (rand() % Console::GetWindowWidth());
-			int y = (rand() % Console::GetWindowHeight());
+			//generates a random x value, y value ; both values range from 1 to 1 less than the size of the console window to prevent a division by 0 exception
+			int x = (rand() % ((Console::GetWindowWidth()-1)-1+1)+1);
+			int y = (rand() % ((Console::GetWindowHeight()-1)-1+1)+1);
 			ConsoleColor colour = ConsoleColor(1 + rand() % 7);
 			//random colour between 1 - 7 and not the range of the whole enum because 0 is black and wouldn't be visible, there is no 8, and 9 is default
 
@@ -244,7 +244,7 @@ int main()
 			int d1 = abs(x - 0);//left
 			int d2 = abs(x - Console::GetWindowWidth());//right
 			int d3 = abs(y - Console::GetWindowHeight());//top
-			int d4 =  abs(y - 0);//bottom
+			int d4 = abs(y - 0);//bottom
 			int minDistance = std::min(std::min(d1,d2),std::min(d3,d4)); //finds the min of all distances
 			int radius = (rand() % minDistance);
 
