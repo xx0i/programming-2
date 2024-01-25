@@ -8,6 +8,7 @@
 
 class ShapeFactory
 {
+public:
 	//RandomPoint should return a random Point2D struct.
 	static Point2D RandomPoint();
 	//RandomColor should return a random ConsoleColor.

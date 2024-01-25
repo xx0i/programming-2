@@ -232,25 +232,25 @@ int main()
 
 			*/
 			//generates a random x value, y value ; both values range from 1 to 1 less than the size of the console window to prevent a division by 0 exception
-			int x = (rand() % ((Console::GetWindowWidth()-1)-1+1)+1);
-			int y = (rand() % ((Console::GetWindowHeight()-1)-1+1)+1);
+			int x = (rand() % ((Console::GetWindowWidth() - 1) - 1 + 1) + 1);
+			int y = (rand() % ((Console::GetWindowHeight() - 1) - 1 + 1) + 1);
 			ConsoleColor colour = ConsoleColor(1 + rand() % 7);
 			//random colour between 1 - 7 and not the range of the whole enum because 0 is black and wouldn't be visible, there is no 8, and 9 is default
 
 			//generates random point
 			Point2D point(x, y);
-			
+
 			//generates a random radius value
 			//finds the distance between the point and each edge of the console window
 			int d1 = abs(x - 0);//left
 			int d2 = abs(x - Console::GetWindowWidth());//right
 			int d3 = abs(y - Console::GetWindowHeight());//top
 			int d4 = abs(y - 0);//bottom
-			int minDistance = std::min(std::min(d1,d2),std::min(d3,d4)); //finds the min of all distances
+			int minDistance = std::min(std::min(d1, d2), std::min(d3, d4)); //finds the min of all distances
 			int radius = (rand() % minDistance);
 
 			//creates circle object and draw method
-			Circle circle(radius ,point, colour);
+			Circle circle(radius, point, colour);
 			circle.draw();
 
 			break;
@@ -287,6 +287,31 @@ int main()
 			//vector that holds unique pointer of shapes
 			std::vector<std::unique_ptr<Shape>> randomShapes;
 
+			//while statement to fill the vector with 100 random shapes
+			while (int i = 0 < 100) {
+				int randomNum = (rand() % 5);
+				switch (randomNum) {
+				case 0: //shape
+					randomShapes.push_back(ShapeFactory::RandomShape());
+					break;
+				case 1: //line
+					randomShapes.push_back(ShapeFactory::RandomLine());
+					break;
+				case 2: //rectangle
+					randomShapes.push_back(ShapeFactory::RandomRectangle());
+					break;
+				case 3: //triangle
+					randomShapes.push_back(ShapeFactory::RandomTriangle());
+					break;
+				case 4: //circle
+					randomShapes.push_back(ShapeFactory::RandomCircle());
+					break;
+				}
+				i++;
+			}
+			for (const auto& shape : randomShapes) {
+				shape->draw();
+			}
 			break;
 		}
 		default:

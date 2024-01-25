@@ -3,9 +3,9 @@
 //RandomPoint should return a random Point2D struct.
 Point2D ShapeFactory::RandomPoint()
 {
-	//generates a random x value, y value
-	int x = (rand() % Console::GetWindowWidth());
-	int y = (rand() % Console::GetWindowHeight());
+	//generates a random x value, y value ; both values range from 1 to 1 less than the size of the console window to prevent a division by 0 exception (for circle)
+	int x = (rand() % ((Console::GetWindowHeight() - 1) - 1 + 1) + 1);
+	int y = (rand() % ((Console::GetWindowHeight() - 1) - 1 + 1) + 1);
 	//generates a random point
 	Point2D point(x, y);
 
@@ -28,7 +28,7 @@ std::unique_ptr<Shape> ShapeFactory::RandomShape()
 	ConsoleColor shapeColour = RandomColour();
 
 	//unique pointer of random shape
-	std::unique_ptr<Shape> pShape = std::make_unique<Shape>(shapePoint, shapeColour); //is the base so no upcasting needed
+	std::unique_ptr<Shape> pShape = std::make_unique<Shape>(shapePoint, shapeColour);
 
 	//returns randomShape
 	return pShape;
@@ -44,9 +44,6 @@ std::unique_ptr<Line> ShapeFactory::RandomLine()
 
 	//unique pointer of random line
 	std::unique_ptr<Line> pLine = std::make_unique<Line>(linePoint1, linePoint2, lineColour);
-
-	//move the unique ptr to a base type
-	std::unique_ptr<Shape> pShape = std::move(pLine);
 
 	//returns random line
 	return pLine;
@@ -64,9 +61,6 @@ std::unique_ptr<Rectangle> ShapeFactory::RandomRectangle()
 	//unique pointer of random rectangle
 	std::unique_ptr<Rectangle> pRectangle = std::make_unique<Rectangle>(rectangleWidth, rectangleHeight, rectanglePoint, rectangleColour);
 
-	//move the unique ptr to a base type
-	std::unique_ptr<Shape> pShape = std::move(pRectangle);
-
 	//returns random rectangle
 	return pRectangle;
 }
@@ -82,9 +76,6 @@ std::unique_ptr<Triangle> ShapeFactory::RandomTriangle()
 
 	//unique pointer of random triangle
 	std::unique_ptr<Triangle> pTriangle = std::make_unique<Triangle>(trianglePoint1, trianglePoint2, trianglePoint3, triangleColour);
-
-	//move the unique ptr to a base type
-	std::unique_ptr<Shape> pShape = std::move(pTriangle);
 
 	//returns random triangle
 	return pTriangle;
@@ -107,9 +98,6 @@ std::unique_ptr<Circle> ShapeFactory::RandomCircle()
 
 	//unique pointer of random circle
 	std::unique_ptr<Circle> pCircle = std::make_unique<Circle>(circleRadius, circlePoint, circleColour);
-
-	//move the unique ptr to a base type
-	std::unique_ptr<Shape> pShape = std::move(pCircle);
 
 	//returns random circle
 	return pCircle;
