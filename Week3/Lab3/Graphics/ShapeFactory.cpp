@@ -4,8 +4,8 @@
 Point2D ShapeFactory::RandomPoint()
 {
 	//generates a random x value, y value ; both values range from 1 to 1 less than the size of the console window to prevent a division by 0 exception for circle)
-	int x = (rand() % ((Console::GetWindowWidth() - 1) - 1 + 1) + 1);
-	int y = (rand() % ((Console::GetWindowHeight() - 1) - 1 + 1) + 1);
+	int x = (rand() % Console::GetWindowWidth());
+	int y = (rand() % Console::GetWindowHeight());
 	//generates a random point
 	Point2D point(x, y);
 
@@ -86,6 +86,13 @@ std::unique_ptr<Circle> ShapeFactory::RandomCircle()
 {
 	//generates the random point, and colour for the circle
 	Point2D circlePoint = RandomPoint();
+	if (circlePoint.x_ == 0) {
+		circlePoint.x_ += (1 + rand() % Console::GetWindowWidth());
+	}
+	if (circlePoint.y_ == 0) {
+		circlePoint.y_ += (1 + rand() % Console::GetWindowHeight());
+	}
+
 	ConsoleColor circleColour = RandomColour();
 	
 	//uses the random point to generate a random radius
