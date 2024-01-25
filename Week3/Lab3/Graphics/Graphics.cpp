@@ -145,7 +145,7 @@ int main()
 				width -= ((x + width) % Console::GetWindowWidth());
 			}
 			if (y + height > Console::GetWindowHeight()) {
-				height += ((y + height) % Console::GetWindowHeight());
+				height -= ((y + height) % Console::GetWindowHeight());
 			}
 
 			//The y values in the Console start at 0 at the top of the window and increase going down to the bottom of the window

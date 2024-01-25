@@ -4,8 +4,8 @@
 Point2D ShapeFactory::RandomPoint()
 {
 	//generates a random x value, y value ; both values range from 1 to 1 less than the size of the console window to prevent a division by 0 exception (for circle)
-	int x = (rand() % ((Console::GetWindowHeight() - 1) - 1 + 1) + 1);
-	int y = (rand() % ((Console::GetWindowHeight() - 1) - 1 + 1) + 1);
+	int x = (rand() % Console::GetWindowHeight());
+	int y = (rand() % Console::GetWindowHeight());
 	//generates a random point
 	Point2D point(x, y);
 
@@ -94,6 +94,9 @@ std::unique_ptr<Circle> ShapeFactory::RandomCircle()
 	int d3 = abs(circlePoint.y_ - Console::GetWindowHeight());//top
 	int d4 = abs(circlePoint.y_ - 0);//bottom
 	int minDistance = std::min(std::min(d1, d2), std::min(d3, d4)); //finds the min of all distances
+	while (minDistance == 0) {
+		circlePoint = RandomPoint();
+	}
 	int circleRadius = (rand() % minDistance);
 
 	//unique pointer of random circle

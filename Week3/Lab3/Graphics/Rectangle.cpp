@@ -22,8 +22,8 @@ Rectangle::Rectangle(int const width, int const height, Point2D const startPt, C
 
 	//points to create the lines (corners of the rectangle)
 	Point2D pt2((startPt.x_ + width), startPt.y_);
-	Point2D pt3((startPt.x_ + width), (startPt.y_ - height));
-	Point2D pt4(startPt.x_, (startPt.y_ - height));
+	Point2D pt3((startPt.x_ + width), (startPt.y_ + height));
+	Point2D pt4(startPt.x_, (startPt.y_ + height));
 
 	//lines to be pushed back to the vector
 	Line top(startPt, pt2, colour);
