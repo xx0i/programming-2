@@ -145,9 +145,11 @@ int main()
 				width -= ((x + width) % Console::GetWindowWidth());
 			}
 			if (y + height > Console::GetWindowHeight()) {
-				height -= ((y + height) % Console::GetWindowHeight());
+				height += ((y + height) % Console::GetWindowHeight());
 			}
 
+			//The y values in the Console start at 0 at the top of the window and increase going down to the bottom of the window
+			//your rectangle is subtracting height when it should be adding height
 
 			//generates a random point
 			Point2D point(x, y);
@@ -288,7 +290,8 @@ int main()
 			std::vector<std::unique_ptr<Shape>> randomShapes;
 
 			//while statement to fill the vector with 100 random shapes
-			while (int i = 0 < 100) {
+			int i = 0;
+			while (i < 100) {
 				int randomNum = (rand() % 5);
 				switch (randomNum) {
 				case 0: //shape
