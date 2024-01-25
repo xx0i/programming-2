@@ -9,6 +9,7 @@
 #include "Rectangle.h"
 #include "Triangle.h"
 #include "Circle.h"
+#include "ShapeFactory.h"
 
 
 int main()
@@ -283,6 +284,8 @@ int main()
 
 
 			*/
+			//vector that holds unique pointer of shapes
+			std::vector<std::unique_ptr<Shape>> randomShapes;
 
 			break;
 		}
