@@ -57,7 +57,12 @@ std::unique_ptr<Rectangle> ShapeFactory::RandomRectangle()
 	int rectangleHeight = (rand() % Console::GetWindowHeight());
 	Point2D rectanglePoint = RandomPoint();
 	ConsoleColor rectangleColour = RandomColour();
-
+	if (rectanglePoint.x_ + rectangleWidth > Console::GetWindowWidth()) {
+		rectangleWidth -= ((rectanglePoint.x_ + rectangleWidth) % Console::GetWindowWidth());
+	}
+	if (rectanglePoint.y_ + rectangleHeight > Console::GetWindowHeight()) {
+		rectangleHeight -= ((rectanglePoint.y_ + rectangleHeight) % Console::GetWindowHeight());
+	}
 	//unique pointer of random rectangle
 	std::unique_ptr<Rectangle> pRectangle = std::make_unique<Rectangle>(rectangleWidth, rectangleHeight, rectanglePoint, rectangleColour);
 
