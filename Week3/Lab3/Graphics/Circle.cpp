@@ -5,22 +5,22 @@ int Circle::Radius()const {
 }
 
 //radius mutator
-void Circle::setRadius(int newRadius) {
+void Circle::setRadius(int& newRadius) {
 	radius_ = newRadius;
 }
 
 //Pass the startPt and color to the base constructor.Use radius parameter to set the radius data.
-Circle::Circle(int const radius, Point2D const startPt, ConsoleColor const colour) : Shape(startPt, colour), radius_(radius) {
+Circle::Circle(int const& radius, Point2D const& startPt, ConsoleColor const& colour) : Shape(startPt, colour), radius_(radius) {
 }
 
 //plot method
-void Circle::Plot(int const x, int const y) {
+void Circle::Plot(int const& x, int const& y) {
 	Console::SetCursorPosition(x, y);
 	Console::Write(" ");
 }
 
 //DrawCirclePoints method
-void Circle::DrawCirclePoints(int const xc, int const yc, int const x, int const y) {
+void Circle::DrawCirclePoints(int const& xc, int const& yc, int const& x, int const& y) {
 	Plot((xc + x), (yc + y));
 	Plot((xc - x), (yc + y));
 	Plot((xc + x), (yc - y));
@@ -32,7 +32,7 @@ void Circle::DrawCirclePoints(int const xc, int const yc, int const x, int const
 }
 
 //DrawCircle method
-void Circle::DrawCircle(int const xc, int const yc, int const r) {
+void Circle::DrawCircle(int const& xc, int const& yc, int const& r) {
 	int x = 0;
 	int y = r;
 	int d = 3 - 2 * r;

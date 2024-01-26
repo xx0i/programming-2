@@ -9,16 +9,16 @@ int Rectangle::Height()const {
 }
 
 //width and height mutators
-void Rectangle::setWidth(int num) {
+void Rectangle::setWidth(int& num) {
 	width_ = num;
 }
 
-void Rectangle::setHeight(int num) {
+void Rectangle::setHeight(int& num) {
 	height_ = num;
 }
 
 //Pass the startPt and color to the base constructor.Use width and height to set the fields.
-Rectangle::Rectangle(int const width, int const height, Point2D const startPt, ConsoleColor const colour) : Shape(startPt, colour), width_(width), height_(height) {
+Rectangle::Rectangle(int const& width, int const& height, Point2D const& startPt, ConsoleColor const& colour) : Shape(startPt, colour), width_(width), height_(height) {
 
 	//points to create the lines (corners of the rectangle)
 	Point2D pt2((startPt.x_ + width), startPt.y_);

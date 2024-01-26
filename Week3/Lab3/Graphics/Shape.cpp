@@ -8,19 +8,19 @@ ConsoleColor Shape::Colour()const {
 }
 
 //startPt and colour mutators
-void Shape::setStartPt(Point2D newPt) {
+void Shape::setStartPt(Point2D& newPt) {
 	startPt_ = newPt;
 }
-void Shape::setColour(ConsoleColor newColour) {
+void Shape::setColour(ConsoleColor& newColour) {
 		colour_ = newColour;
 }
 
 //First constructor takes 2 parameters: a Point2D and a ConsoleColor. Set the data with these parameters.
-Shape::Shape(Point2D const point, ConsoleColor const colour) : startPt_(point), colour_(colour){
+Shape::Shape(Point2D const& point, ConsoleColor const& colour) : startPt_(point), colour_(colour){
 }
 
 //Second constructor takes 3 parameters. Use the x and y parameters to initialize the startPt. Use the ConsoleColor parameter to set the color.
-Shape::Shape(int const x, int const y, ConsoleColor const colour) : startPt_(x, y), colour_(colour) {
+Shape::Shape(int const& x, int const& y, ConsoleColor const& colour) : startPt_(x, y), colour_(colour) {
 }
 
 //draw method

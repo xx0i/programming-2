@@ -11,11 +11,11 @@ public:
 	int Height()const;
 
 	//mutators
-	void setWidth(int num);
-	void setHeight(int num);
+	void setWidth(int& num);
+	void setHeight(int& num);
 
 	//constructor with the following parameters : width, height, startPt, colour.
-	Rectangle(int const width, int const height, Point2D const startPt, ConsoleColor const colour);
+	Rectangle(int const& width, int const& height, Point2D const& startPt, ConsoleColor const& colour);
 
 	//draw method
 	void draw() override;
