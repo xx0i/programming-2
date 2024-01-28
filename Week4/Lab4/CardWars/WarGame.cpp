@@ -65,8 +65,10 @@ void WarGame::LoadCards(std::string const& filePath) {
 
 //ShowCards method
 void WarGame::ShowCards() {
-	LoadCards("cards.csv");
+	LoadCards("cards.csv");  //calls LoadCards passing it cards.csv
+	//loops through _cards and prints each object and moves to the next line
 	for (auto& card : _cards) {
-		Console::WriteLine(card.GetFace() + card.GetSuit());
+		card.print();
+		Console::Write("\n");
 	}
 }
