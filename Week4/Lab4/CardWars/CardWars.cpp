@@ -133,6 +133,7 @@ int main()
             /*
                 After creating the ShowCards method to the WarGame class, call the method here.
             */
+            WarGame::ShowCards();
             break;
         }
         case 2:

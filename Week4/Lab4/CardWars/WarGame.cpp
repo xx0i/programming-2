@@ -5,6 +5,7 @@
 #include <sstream>
 #include <iomanip>
 #include "Input.h"
+#include "Console.h"
 
 
 std::vector<Card> WarGame::_cards;
@@ -36,31 +37,36 @@ void WarGame::LoadCards(std::string const& filePath) {
 	if (inputFile.is_open()) {
 
 		//GETTING THE SUITS
-		std::string inputLine1; //variable for the first line (suits)
-		std::vector<std::string> suits; //vector to hold the suits
+		std::string inputLine; //variable for the line
+		std::vector<std::string> suits; //vector to hold the suits, after split
 		std::string suit;  //placeholder
-		std::getline(inputFile, inputLine1);  //reads line 1
-		while (std::getline(inputFile, suit, '?')) {
-			suits.push_back(suit);
+		while (std::getline(inputFile, inputLine)) {  //reads the file lines
+			std::stringstream line(inputLine);
+			while (std::getline(line, suit, '?')) {
+				suits.push_back(suit);
+			}
 		}
-
-		//GETTING THE FACES
-		std::string inputLine2; //variable for the second line (faces)
+		//separating the data into two vectors
 		std::vector<std::string> faces; //vector to hold the faces
-		std::string face;  //placeholder
-		std::getline(inputFile, inputLine2);  //reads line 2
-		while (std::getline(inputFile, face, '?')) {
-			faces.push_back(face);
-		}
+		std::move(suits.begin()+4, suits.end(), std::back_inserter(faces));  //moves the faces from suits vector to faces vector
+		suits.erase(suits.begin() + 4, suits.end());  //erases the faces from suits vecotr
 
 		//making the card object and adding it to _cards
 		for (int i = 0; i < suits.size(); i++) {  //loops through suits
 			std::string currentSuit = suits[i];  //variable for current suits iteration
 			for (int i = 0; i < faces.size(); i++) {  //loops through faces
-				_cards.push_back(Card(currentSuit, faces[i]));  //creats a card object and adds it to the vector
+				_cards.push_back(Card(currentSuit, faces[i]));  //creates a card object and adds it to the vector
 			}
 
 		}
 	}
 	inputFile.close();  //close the file
+}
+
+//ShowCards method
+void WarGame::ShowCards() {
+	LoadCards("cards.csv");
+	for (auto& card : _cards) {
+		Console::WriteLine(card.GetFace() + card.GetSuit());
+	}
 }
