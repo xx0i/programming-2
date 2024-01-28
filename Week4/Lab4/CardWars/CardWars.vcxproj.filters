@@ -41,6 +41,9 @@
     <ClCompile Include="Tester.cpp">
       <Filter>Misc\Tests</Filter>
     </ClCompile>
+    <ClCompile Include="HighScore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WarGame.h">
@@ -57,6 +60,9 @@
     </ClInclude>
     <ClInclude Include="Tester.h">
       <Filter>Misc\Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="HighScore.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
