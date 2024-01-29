@@ -6,6 +6,7 @@
 #include <string>
 #include <sstream>
 #include <vector>
+#include "Superhero.h"
 
 
 
@@ -56,7 +57,7 @@ int main()
     char delimiter = '?'; 
     {
         std::ofstream outFile(fullPath);
-        outFile << "stan twice!" << delimiter << true << delimiter << 9;
+        outFile << "stan twice!" << delimiter << 9 << delimiter << 10.27 << delimiter << true;
     }
    // outFile.close();
 
@@ -66,6 +67,21 @@ int main()
     std::getline(inFile, line);
     std::cout << line << "\n";
     inFile.close();
+
+    //parse the csv data into individual pieces
+    std::stringstream lineStream(line);
+    std::string data;
+    std::getline(lineStream, data, delimiter); //reads stan twice!
+    std::string catchData = data;
+
+    std::getline(lineStream, data, delimiter);  //reads 9
+    int members = std::stoi(data);
+
+    std::getline(lineStream, data, delimiter);  //reads 10.27
+    double debut = std::stod(data);
+
+    std::getline(lineStream, data, delimiter);  //reads 1
+    bool Comeback = std::stoi(data);
 
     /*
 
@@ -115,7 +131,28 @@ int main()
             name^secret^age  the details of each hero is separated by a ^
 
     */
+    std::vector<Superhero> JLA;
+
     std::string multi = "Batman^Bruce Wayne^35#Superman^Clark Kent^25#Wonder Woman^Diana Prince^25#Aquaman^Arthur Curry^12";
     char collectionSeparator = '#';
     char objectSeparator = '^';
+
+    std::string heroString;
+    std::stringstream heroStream(multi);
+    while (std::getline(heroStream, heroString, collectionSeparator)) {
+        std::stringstream detailsStream(heroString);
+        std::string name, secret, ageString;
+        int age;
+        std::getline(detailsStream, name, objectSeparator);
+        std::getline(detailsStream, secret, objectSeparator);
+        age = std::stoi(ageString);
+
+        Superhero hero(name, secret, age);
+        JLA.push_back(hero);
+    }
+    std::cout << "\n\nThe Justice League\n";
+    for (auto& hero : JLA) {
+        std::cout << "Hello citizen I am " << hero.Name() << "! (aka " << hero.Secret() << ").";
+        std::cout << " I am " << hero.Age() << " years old.";
+    }
 }
