@@ -17,7 +17,6 @@ public:
 
 private:
 	static std::vector<Card> _cards;
-
 	static void shuffle();
 };
 

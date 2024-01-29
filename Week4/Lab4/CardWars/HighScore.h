@@ -12,9 +12,6 @@ public:
 	void Name(std::string newName);
 	void Score(int newScore);
 
-	//Deserialize method
-	void Deserialize(std::string csvData, char delimiter);
-
 	//HighScore constructor
 	HighScore(std::string const& csvData, char const& delimiter);
 
@@ -25,4 +22,6 @@ private:
 	//member fields string name and int score
 	std::string name_;
 	int score_;
+	//Deserialize method
+	void Deserialize(std::string csvData, char delimiter);
 };
