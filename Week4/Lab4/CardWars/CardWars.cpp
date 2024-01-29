@@ -3,6 +3,7 @@
 #include "Input.h"
 #include "WarGame.h"
 #include "Tester.h"
+#include "HighScore.h"
 
 int main()
 {
@@ -120,13 +121,14 @@ int main()
             In case 3 of the menu switch in Main, call PlayGame to play a game of war!
     */
 
-    do
+WarGame::LoadCards("cards.csv");  //calls LoadCards passing it cards.csv
+std::vector<HighScore> highScores = HighScore::LoadHighScores("HighScores.csv");  //calls LoadHighScores passing it HighScores.csv
+   
+do
     {
         Console::Clear();
         menuSelection = Input::GetMenuSelection(menuOptions);
         Console::Clear();
-
-        WarGame::LoadCards("cards.csv");  //calls LoadCards passing it cards.csv
 
         switch (menuSelection)
         {
