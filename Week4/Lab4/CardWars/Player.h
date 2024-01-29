@@ -33,8 +33,3 @@ private:
 	std::vector<Card> pile_;
 	std::vector<Card> won_;
 };
-
-//HasCards will return true if there are cards in the pile vector.
-//PushCard will take a card parameter and add it to the pile vector of cards.
-//PopCard will remove a card from the pile vector of cards and return the card.
-//WonCards will take a vector of cards and add it to the won vector of cards and update the score field
