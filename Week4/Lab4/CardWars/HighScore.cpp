@@ -89,13 +89,13 @@ void HighScore::SaveHighScores(std::string const& filePath, std::vector<HighScor
 
 	std::ofstream file(filePath);  //opens the file
 	if (file.is_open()) {
-		bool isFirst = true; 
+		bool isFirst = true;
 		for (auto& score : highScores)  //for each item in the passed vector
 		{
 			if (!isFirst)  //checks if the it is the first item
 				file << dataDelim;
 			score.serialize(file, objDelim);
-			isFirst = false;  
+			isFirst = false;
 		}
 		file.close();  //closes the file
 	}
