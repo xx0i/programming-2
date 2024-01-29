@@ -140,6 +140,7 @@
     <ClCompile Include="Card.cpp" />
     <ClCompile Include="CardWars.cpp" />
     <ClCompile Include="HighScore.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Tester.cpp" />
     <ClCompile Include="WarGame.cpp" />
   </ItemGroup>
@@ -148,6 +149,7 @@
     <ClInclude Include="..\..\..\Shared\Input\Input.h" />
     <ClInclude Include="Card.h" />
     <ClInclude Include="HighScore.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Tester.h" />
     <ClInclude Include="WarGame.h" />
   </ItemGroup>

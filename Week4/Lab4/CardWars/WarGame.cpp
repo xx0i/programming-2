@@ -39,17 +39,17 @@ void WarGame::LoadCards(std::string const& filePath) {
 		//GETTING THE SUITS
 		std::string inputLine; //variable for the line
 		std::vector<std::string> suits; //vector to hold the suits, after split
-		std::string suit;  //placeholder
+		std::string index;  //placeholder
 		while (std::getline(inputFile, inputLine)) {  //reads the file lines
 			std::stringstream line(inputLine);
-			while (std::getline(line, suit, '?')) {
-				suits.push_back(suit);
+			while (std::getline(line, index, '?')) {
+				suits.push_back(index);
 			}
 		}
 		//separating the data into two vectors
 		std::vector<std::string> faces; //vector to hold the faces
 		std::move(suits.begin()+4, suits.end(), std::back_inserter(faces));  //moves the faces from suits vector to faces vector
-		suits.erase(suits.begin() + 4, suits.end());  //erases the faces from suits vecotr
+		suits.erase(suits.begin() + 4, suits.end());  //erases the faces from suits vector
 
 		//making the card object and adding it to _cards
 		for (int i = 0; i < suits.size(); i++) {  //loops through suits

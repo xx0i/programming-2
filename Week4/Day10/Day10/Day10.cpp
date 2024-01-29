@@ -49,6 +49,7 @@ int main()
         Lecture code: set a filePath variable, open an output file, write some csv data to it
     */
 
+    //writing the csv data
     std::string path = "C:\\full sail\\programming 2\\my projects\\Week4\\Day10Path\\";
     std::string fileName = "2401.csv";
     std::string fullPath = path + fileName;
@@ -58,6 +59,13 @@ int main()
         outFile << "stan twice!" << delimiter << true << delimiter << 9;
     }
    // outFile.close();
+
+    //read the csv data
+    std::ifstream inFile(fullPath);
+    std::string line;
+    std::getline(inFile, line);
+    std::cout << line << "\n";
+    inFile.close();
 
     /*
 
