@@ -49,6 +49,15 @@ int main()
         Lecture code: set a filePath variable, open an output file, write some csv data to it
     */
 
+    std::string path = "C:\\full sail\\programming 2\\my projects\\Week4\\Day10Path\\";
+    std::string fileName = "2401.csv";
+    std::string fullPath = path + fileName;
+    char delimiter = '?'; 
+    {
+        std::ofstream outFile(fullPath);
+        outFile << "stan twice!" << delimiter << true << delimiter << 9;
+    }
+   // outFile.close();
 
     /*
 
