@@ -2,6 +2,8 @@
 #include <sstream>
 #include <fstream>
 #include "Console.h"
+#include <iostream>
+#include <iomanip>
 
 //accessors
 std::string HighScore::Name() {
@@ -62,4 +64,20 @@ std::vector<HighScore> HighScore::LoadHighScores(std::string const& filePath) {
 	else {
 		Console::WriteLine("There was a problem loading the file. Please try again.");
 	}
+}
+
+//ShowHighScores method
+void HighScore::ShowHighScores(std::vector<HighScore> const& highScores) {
+	//writes the scores with proper formatting
+	Console::WriteLine("----HIGH SCORES----");
+	for (auto& score : highScores) {
+		std::cout << std::left << std::setw(17);
+		Console::Write(score.name_);
+		Console::WriteLine(std::to_string(score.score_), ConsoleColor::Yellow);
+	}
+}
+
+//serialize method
+void HighScore::serialize(std::ofstream& file, char objectDelimiter) {
+	file << name_ << objectDelimiter << score_;
 }

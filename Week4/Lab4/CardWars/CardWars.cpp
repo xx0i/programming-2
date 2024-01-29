@@ -145,6 +145,7 @@ do
             /*
                 After creating the ShowHighScores method to the HighScore class, call the method here passing the highScores vector.
             */
+            HighScore::ShowHighScores(highScores);
             break;
         }
         case 3:
