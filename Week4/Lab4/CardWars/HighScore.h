@@ -30,8 +30,8 @@ private:
 	int score_;
 
 	//Deserialize method
-	void Deserialize(std::string csvData, char delimiter);
+	void Deserialize(std::string const& csvData, char const& delimiter);
 
 	//serialize method
-	void serialize(std::ofstream& file, char objectDelimiter);
+	void serialize(std::ofstream& file, char const& objectDelimiter)const;
 };

@@ -24,7 +24,7 @@ void HighScore::Score(int& newScore) {
 }
 
 //Deserialize method
-void HighScore::Deserialize(std::string csvData, char delimiter) {
+void HighScore::Deserialize(std::string const& csvData, char const& delimiter) {
 	{
 		//data format: 1 high score object per line
 		std::stringstream highScore(csvData);
@@ -78,6 +78,25 @@ void HighScore::ShowHighScores(std::vector<HighScore> const& highScores) {
 }
 
 //serialize method
-void HighScore::serialize(std::ofstream& file, char objectDelimiter) {
+void HighScore::serialize(std::ofstream& file, char const& objectDelimiter)const {
 	file << name_ << objectDelimiter << score_;
+}
+
+//SaveHighScores method
+void HighScore::SaveHighScores(std::string const& filePath, std::vector<HighScore>const& highScores) {
+	char dataDelim = '|';//separates high scores
+	char objDelim = ',';//separates the name and score inside the high score
+
+	std::ofstream file(filePath);  //opens the file
+	if (file.is_open()) {
+		bool isFirst = true; 
+		for (auto& score : highScores)  //for each item in the passed vector
+		{
+			if (!isFirst)  //checks if the it is the first item
+				file << dataDelim;
+			score.serialize(file, objDelim);
+			isFirst = false;  
+		}
+		file.close();  //closes the file
+	}
 }
