@@ -126,6 +126,8 @@ int main()
         menuSelection = Input::GetMenuSelection(menuOptions);
         Console::Clear();
 
+        WarGame::LoadCards("cards.csv");  //calls LoadCards passing it cards.csv
+
         switch (menuSelection)
         {
         case 1:
