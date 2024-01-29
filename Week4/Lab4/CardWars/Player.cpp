@@ -2,20 +2,20 @@
 #include <iostream>
 
 //accessors
-std::string Player::Name() {
+std::string Player::Name()const {
 	return name_;
 }
 
-int Player::Score() {
+int Player::Score()const {
 	return score_;
 }
 
 //mutators
-void Player::Name(std::string newName) {
+void Player::Name(std::string& newName) {
 	name_ = newName;
 }
 
-void Player::Score(int newScore) {
+void Player::Score(int& newScore) {
 	score_ = newScore;
 }
 

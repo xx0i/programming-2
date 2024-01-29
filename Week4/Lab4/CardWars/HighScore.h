@@ -5,12 +5,12 @@ class HighScore
 {
 public:
 	//accessors
-	std::string Name();
-	int Score();
+	std::string Name()const;
+	int Score()const;
 
 	//mutators
-	void Name(std::string newName);
-	void Score(int newScore);
+	void Name(std::string& newName);
+	void Score(int& newScore);
 
 	//HighScore constructor
 	HighScore(std::string const& csvData, char const& delimiter);
@@ -21,6 +21,9 @@ public:
 	//ShowHighScores method
 	static void ShowHighScores(std::vector<HighScore> const& highScores);
 
+	//SaveHighScores method
+	static void SaveHighScores(std::string const& filePath, std::vector<HighScore> const& highScores);
+
 private:
 	//member fields string name and int score
 	std::string name_;
@@ -29,6 +32,6 @@ private:
 	//Deserialize method
 	void Deserialize(std::string csvData, char delimiter);
 
-	//sereialize method
+	//serialize method
 	void serialize(std::ofstream& file, char objectDelimiter);
 };

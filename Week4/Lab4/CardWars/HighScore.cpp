@@ -6,20 +6,20 @@
 #include <iomanip>
 
 //accessors
-std::string HighScore::Name() {
+std::string HighScore::Name()const {
 	return name_;
 }
 
-int HighScore::Score() {
+int HighScore::Score()const {
 	return score_;
 }
 
 //mutators
-void HighScore::Name(std::string newName) {
+void HighScore::Name(std::string& newName) {
 	name_ = newName;
 }
 
-void HighScore::Score(int newScore) {
+void HighScore::Score(int& newScore) {
 	score_ = newScore;
 }
 

@@ -7,12 +7,12 @@ class Player
 {
 public:
 	//accessors
-	std::string Name();
-	int Score();
+	std::string Name()const;
+	int Score()const;
 
 	//mutators
-	void Name(std::string newName);
-	void Score(int newScore);
+	void Name(std::string& newName);
+	void Score(int& newScore);
 
 	//HasCards method
 	bool HasCards();
