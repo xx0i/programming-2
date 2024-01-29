@@ -59,8 +59,11 @@ void WarGame::LoadCards(std::string const& filePath) {
 			}
 
 		}
+		inputFile.close();  //close the file
 	}
-	inputFile.close();  //close the file
+	else {
+		Console::WriteLine("There was a problem loading the file. Please try again.");
+	}
 }
 
 //ShowCards method
