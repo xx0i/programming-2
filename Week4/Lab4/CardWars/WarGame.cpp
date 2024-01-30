@@ -83,7 +83,6 @@ void WarGame::PlayGame(std::string const& name, std::vector<HighScore>& highScor
 	//initializes the npc and player
 	Player npc;
 	npc.Name("NPC");
-
 	Player player;
 	player.Name(name);
 
@@ -146,10 +145,10 @@ void WarGame::PlayGame(std::string const& name, std::vector<HighScore>& highScor
 			for (int i = 0; i < highScore.size(); i++) {
 				if (player.Score() >= highScore[i].Score()) {
 					std::string fullPlayer = player.Name() + ';' + std::to_string(player.Score());
-					HighScore newScore(fullPlayer,';');
+					HighScore newScore(fullPlayer, ';');
 					highScore.insert(highScore.begin() + i, newScore);
 					highScore.pop_back();
-					HighScore::SaveHighScores("HighScores.csv",highScore);
+					HighScore::SaveHighScores("HighScores.csv", highScore);
 					HighScore::ShowHighScores(highScore);
 					break;
 				}
