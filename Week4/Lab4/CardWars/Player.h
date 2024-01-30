@@ -11,7 +11,7 @@ public:
 	int Score()const;
 
 	//mutators
-	void Name(std::string& newName);
+	void Name(std::string newName);
 	void Score(int& newScore);
 
 	//HasCards method

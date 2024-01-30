@@ -153,6 +153,8 @@ do
             /*
                 After creating the PlayGame method to the WarGame class, call the method here passing the highScoreFile string and the highScores vector.
             */
+        std::string name = Input::GetString("Please enter your name: ");
+        WarGame::PlayGame(name, highScores, "HighScores.csv");
             break;
         }
         default:

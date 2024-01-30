@@ -11,7 +11,7 @@ int Player::Score()const {
 }
 
 //mutators
-void Player::Name(std::string& newName) {
+void Player::Name(std::string newName) {
 	name_ = newName;
 }
 
@@ -38,8 +38,8 @@ void Player::PushCard(Card const& card) {
 Card Player::PopCard() {
 	int toRemove = (rand() % pile_.size());  //gets a random number to represent a card in the pile_ vector
 	Card cardRemoval = pile_.at(toRemove);  //gets the random card from the pile_ vector
-	return cardRemoval;  //returns the card
 	pile_.erase(pile_.begin() + toRemove);  //removes the card
+	return cardRemoval;  //returns the card
 }
 
 //WonCards method
