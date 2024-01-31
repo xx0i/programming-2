@@ -71,7 +71,7 @@ int main()
 			Format the output so that the score has a color different than the name.
 			See example screenshot in the lab document.
 
-			** In case 2 of the menu switch in Main in CardWars.cpp, call the ShowHighScores method and pass the vector of highscores.
+			** In case 2 of the menu switch in Main in CardWars.cpp, call the ShowHighScores method and pass the vector of high scores.
 
 
 
