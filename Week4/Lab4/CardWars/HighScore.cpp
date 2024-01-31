@@ -84,8 +84,8 @@ void HighScore::serialize(std::ofstream& file, char const& objectDelimiter)const
 
 //SaveHighScores method
 void HighScore::SaveHighScores(std::string const& filePath, std::vector<HighScore>const& highScores) {
-	char dataDelim = '|';//separates high scores
-	char objDelim = ',';//separates the name and score inside the high score
+	char dataDelim = '\n';//separates high scores
+	char objDelim = '[';//separates the name and score inside the high score
 
 	std::ofstream file(filePath);  //opens the file
 	if (file.is_open()) {
